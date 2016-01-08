@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe "Viewwing todo items" do
+describe "Viewing todo items" do
 	let!(:todo_list) { TodoList.create(title: "Grocery list", description: "Groceries") }
 	
 	def visit_todo_list(list)
