@@ -10,12 +10,12 @@ describe "Viewing todo items" do
 		click_button "Save"
 
 		expect(page).to have_content("Added todo list item.")
-		within "ul.todo_items" do
+		within "table.todo_items" do
 			expect(page).to have_content("Milk")
 		end
 	end
 
-	it "display an error with no content" do
+	it "displays an error with no content" do
 		visit_todo_list(todo_list)
 		click_link "New Todo Item"
 		fill_in "Content", with: ""
@@ -27,7 +27,7 @@ describe "Viewing todo items" do
 		expect(page).to have_content("Content can't be blank")
 	end
 
-	it "display an error with content less than 2 characters long" do
+	it "displays an error with content less than 2 characters long" do
 		visit_todo_list(todo_list)
 		click_link "New Todo Item"
 		fill_in "Content", with: "1"
