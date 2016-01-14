@@ -34,7 +34,15 @@ RSpec.describe UsersController, type: :controller do
   # This should return the minimal set of values that should be in the session
   # in order to pass any filters (e.g. authentication) defined in
   # UsersController. Be sure to keep this updated too.
-  let(:valid_session) { {} }
+  let(:valid_session) { 
+    {
+      "first_name" => "John",
+      "last_name" => "Doe",
+      "email" => "john@doe.com",
+      "password" => "password1234",
+      "password_confirmation" => "password1234"
+    } 
+  }
 
   describe "GET #index" do
     it "assigns all users as @users" do

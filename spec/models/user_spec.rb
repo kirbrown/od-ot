@@ -5,7 +5,9 @@ describe User do
     {
       first_name: "John",
       last_name: "Doe",
-      email: "john@doe.com"
+      email: "john@doe.com",
+      password: "password1234",
+      password_confirmation: "password1234"
     }
   }
 
@@ -27,6 +29,11 @@ describe User do
     it "requires a unique email (case insensitive)" do
       user.email = "JOHN@DOE.COM"
       expect(user).to validate_uniqueness_of(:email)
+    end
+
+    it "requires the email to look like an email"do
+      user.email = "john"
+      expect(user).to_not be_valid
     end
   end
 
