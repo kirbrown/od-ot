@@ -24,11 +24,23 @@ RSpec.describe UsersController, type: :controller do
   # User. As you add validations to User, be sure to
   # adjust the attributes here as well.
   let(:valid_attributes) {
-    skip("Add a hash of attributes valid for your model")
+    {
+      "first_name" => "John",
+      "last_name" => "Doe",
+      "email" => "john@doe.com",
+      "password" => "password1234",
+      "password_confirmation" => "password1234"
+    }
   }
 
   let(:invalid_attributes) {
-    skip("Add a hash of attributes invalid for your model")
+    {
+      "first_name" => "",
+      "last_name" => "",
+      "email" => "",
+      "password" => "",
+      "password_confirmation" => ""
+    } 
   }
 
   # This should return the minimal set of values that should be in the session
@@ -44,13 +56,13 @@ RSpec.describe UsersController, type: :controller do
     } 
   }
 
-  describe "GET #index" do
-    it "assigns all users as @users" do
-      user = User.create! valid_attributes
-      get :index, {}, valid_session
-      expect(assigns(:users)).to eq([user])
-    end
-  end
+  # describe "GET #index" do
+  #   it "assigns all users as @users" do
+  #     user = User.create! valid_attributes
+  #     get :index, {}, valid_session
+  #     expect(assigns(:users)).to eq([user])
+  #   end
+  # end
 
   describe "GET #show" do
     it "assigns the requested user as @user" do
@@ -111,14 +123,19 @@ RSpec.describe UsersController, type: :controller do
   describe "PUT #update" do
     context "with valid params" do
       let(:new_attributes) {
-        skip("Add a hash of attributes valid for your model")
+        {
+          "first_name" => "John1",
+          "last_name" => "Doe1",
+          "email" => "john@doe1.com",
+          "password" => "password12345",
+          "password_confirmation" => "password12345"
+        } 
       }
 
       it "updates the requested user" do
         user = User.create! valid_attributes
         put :update, {:id => user.to_param, :user => new_attributes}, valid_session
         user.reload
-        skip("Add assertions for updated state")
       end
 
       it "assigns the requested user as @user" do
@@ -131,6 +148,11 @@ RSpec.describe UsersController, type: :controller do
         user = User.create! valid_attributes
         put :update, {:id => user.to_param, :user => valid_attributes}, valid_session
         expect(response).to redirect_to(user)
+      end
+
+      it "sets the session user_id to the created user" do
+        post :create, {:user => valid_attributes }, valid_session
+        expect(session[:user_id]).to eq(User.find_by(email: valid_attributes["email"]).id)
       end
     end
 
