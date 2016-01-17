@@ -33,7 +33,7 @@ RSpec.describe TodoListsController, type: :controller do
   let(:valid_session) { { "title" => "My Title", "description" => "My Description" } }
 
   before do
-    allow(controller).to receive(:current_user).and_return(User.new)
+    sign_in(build_stubbed(:user))
   end
 
   describe "GET #index" do
