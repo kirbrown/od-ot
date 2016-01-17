@@ -30,13 +30,20 @@ RSpec.describe TodoListsController, type: :controller do
   # This should return the minimal set of values that should be in the session
   # in order to pass any filters (e.g. authentication) defined in
   # TodoListsController. Be sure to keep this updated too.
-  let(:valid_session) { {} }
+  let(:valid_session) { { "title" => "My Title", "description" => "My Description" } }
+
+  before do
+    allow(controller).to receive(:current_user).and_return(User.new)
+  end
 
   describe "GET #index" do
-    it "assigns all todo_lists as @todo_lists" do
-      todo_list = TodoList.create! valid_attributes
-      get :index, {}, valid_session
-      expect(assigns(:todo_lists)).to eq([todo_list])
+    context "logged in" do
+      it "assigns all todo_lists as @todo_lists" do
+        todo_list = TodoList.create! valid_attributes
+        get :index, {}, valid_session
+
+        expect(assigns(:todo_lists)).to eq([todo_list])
+      end
     end
   end
 
@@ -98,15 +105,12 @@ RSpec.describe TodoListsController, type: :controller do
 
   describe "PUT #update" do
     context "with valid params" do
-      let(:new_attributes) {
-        skip("Add a hash of attributes valid for your model")
-      }
+      let(:new_attributes) { { "title" => "My Title", "description" => "My Description"} }
 
       it "updates the requested todo_list" do
         todo_list = TodoList.create! valid_attributes
         put :update, {:id => todo_list.to_param, :todo_list => new_attributes}, valid_session
         todo_list.reload
-        skip("Add assertions for updated state")
       end
 
       it "assigns the requested todo_list as @todo_list" do
