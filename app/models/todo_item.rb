@@ -7,6 +7,6 @@ class TodoItem < ActiveRecord::Base
   scope :incomplete, -> { where(completed_at: nil) }
   
   def completed?
-  	!completed_at.blank?
+    !completed_at.blank?
   end
 end

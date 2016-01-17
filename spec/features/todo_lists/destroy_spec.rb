@@ -2,20 +2,20 @@ require 'rails_helper'
 
 describe "Deleting todo lists" do
   let(:user) { create(:user) }
-	let!(:todo_list) { TodoList.create(title: "Groceries", description: "Grocery list.") }
+  let!(:todo_list) { create(:todo_list) }
 
   before do
-    sign_in user, password: "password1234"
+    sign_in todo_list.user, password: "password1234"
   end
   
-	it "is successful when clicking the destroy link" do
-		visit "/todo_lists"
+  it "is successful when clicking the destroy link" do
+    visit "/todo_lists"
 
-		within "#todo_list_#{todo_list.id}" do
-			click_link "Destroy"
-		end
+    within "#todo_list_#{todo_list.id}" do
+      click_link "Destroy"
+    end
 
-		expect(page).to_not have_content(todo_list.title)
-		expect(TodoList.count).to eq(0)
-	end
+    expect(page).to_not have_content(todo_list.title)
+    expect(TodoList.count).to eq(0)
+  end
 end
