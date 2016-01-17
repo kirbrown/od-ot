@@ -14,6 +14,7 @@ gem 'bcrypt', '~> 3.1', '>= 3.1.10'
 group :development, :test do
   gem 'byebug'
   gem 'rspec-rails', '~> 3.4'
+  gem 'factory_girl_rails', '~> 4.5'
 end
 
 group :development do
