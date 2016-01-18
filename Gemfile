@@ -19,10 +19,10 @@ end
 
 group :development do
   gem 'web-console', '~> 2.0'
-	gem 'spring'
+  gem 'spring'
 end
 
 group :test do
-	gem 'capybara', '~> 2.5'
-	gem 'shoulda-matchers', '~> 3.0', '>= 3.0.1'
+  gem 'capybara', '~> 2.5'
+  gem 'shoulda-matchers', '~> 3.0', '>= 3.0.1'
 end
