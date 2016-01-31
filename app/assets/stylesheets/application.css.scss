@@ -10,11 +10,13 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
- *= require_self
  *= require foundation_and_overrides
+ *= require_self
 
-  *= require_tree .
  */
+
+@import 'partials/todo_lists';
+@import 'partials/todo_items';
 
 .alert {
   border: 2px solid #aaa;
