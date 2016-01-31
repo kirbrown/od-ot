@@ -10,8 +10,7 @@ class TodoListsController < ApplicationController
 
   # GET /todo_lists/1
   # GET /todo_lists/1.json
-  def show
-  end
+  def show; end
 
   # GET /todo_lists/new
   def new
@@ -19,8 +18,7 @@ class TodoListsController < ApplicationController
   end
 
   # GET /todo_lists/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /todo_lists
   # POST /todo_lists.json
