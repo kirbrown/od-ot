@@ -9,7 +9,8 @@ describe 'Logging In' do
         :password => 'password1234',
         :password_confirmation => 'password1234'
     )
-    visit new_user_session_path
+    visit '/'
+    click_link 'Sign In'
     fill_in 'Email', with: 'john@doe.com'
     fill_in 'Password', with: 'password1234'
     click_button 'Log In'
