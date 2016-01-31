@@ -25,15 +25,13 @@ RSpec.describe TodoListsController, type: :controller do
   # adjust the attributes here as well.
   let(:valid_attributes) {
     {
-      :title => 'My Title',
-      :description => 'My Description'
+      :title => 'My Title'
     }
   }
 
   let(:invalid_attributes) {
     {
-      :title => '',
-      :description => ''
+      :title => ''
     }
   }
 
@@ -42,8 +40,7 @@ RSpec.describe TodoListsController, type: :controller do
   # TodoListsController. Be sure to keep this updated too.
   let(:valid_session) {
     {
-      :title => 'My Title',
-      :description => 'My Description'
+      :title => 'My Title'
     }
   }
   let!(:user) { create(:user) }
