@@ -9,7 +9,7 @@ describe 'Editing todo items' do
   it 'is successful with valid content' do
     visit_todo_list(todo_list)
     within dom_id_for(todo_item) do
-      click_link 'Edit'
+      click_link todo_item.content
     end
     fill_in 'Content', with: 'Lots of Milk'
     click_button 'Save'
@@ -22,7 +22,7 @@ describe 'Editing todo items' do
   it 'is unsuccessful with no content' do
     visit_todo_list(todo_list)
     within dom_id_for(todo_item) do
-      click_link 'Edit'
+      click_link todo_item.content
     end
     fill_in 'Content', with: ''
     click_button 'Save'
@@ -36,7 +36,7 @@ describe 'Editing todo items' do
   it 'is unsuccessful with not enough content' do
     visit_todo_list(todo_list)
     within dom_id_for(todo_item) do
-      click_link 'Edit'
+      click_link todo_item.content
     end
     fill_in 'Content', with: '1'
     click_button 'Save'

@@ -6,6 +6,7 @@ describe 'Deleting todo lists' do
   before { sign_in todo_list.user, password: 'password1234' }
 
   it 'is successful when clicking the destroy link' do
+    pending 'Deleting todo lists'
     visit '/todo_lists'
 
     within dom_id_for(todo_list) do

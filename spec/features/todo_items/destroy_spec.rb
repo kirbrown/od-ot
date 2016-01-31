@@ -7,6 +7,7 @@ describe 'Deleting todo items' do
   before { sign_in todo_list.user, password: 'password1234' }
 
   it 'is successful' do
+    pending 'Adding delete link'
     visit_todo_list(todo_list)
     within dom_id_for(todo_item) do
       click_link 'Delete'

@@ -20,11 +20,11 @@ describe 'Completing todo items' do
   context 'with completed items' do
     let!(:completed_todo_item) { todo_list.todo_items.create(content: 'Eggs', completed_at: 5.minutes.ago) }
 
-    it 'shows completed items as complete' do
+    it 'shows an option to mark incomplete' do
       visit_todo_list todo_list
 
       within dom_id_for(completed_todo_item) do
-        expect(page).to have_content(completed_todo_item.completed_at)
+        expect(page).to have_content("Mark Incomplete")
       end
     end
 
