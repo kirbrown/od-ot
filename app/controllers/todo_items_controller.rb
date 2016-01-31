@@ -1,8 +1,11 @@
 class TodoItemsController < ApplicationController
   before_action :require_user
   before_action :find_todo_list
+  before_action :set_back_link, except: [:index]
 
-  def index; end
+  def index
+    go_back_link_to todo_lists_path
+  end
 
   def new
     @todo_item = @todo_list.todo_items.new
@@ -55,6 +58,10 @@ class TodoItemsController < ApplicationController
   end
 
   private
+
+  def set_back_link
+    go_back_link_to todo_list_todo_items_path(@todo_list)
+  end
 
   def find_todo_list
     @todo_list = current_user.todo_lists.find(params[:todo_list_id])
