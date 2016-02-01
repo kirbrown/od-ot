@@ -1,9 +1,24 @@
 /* Todo Items styles */
 
-.todo_items {
-  width: 100%;
+.checked, .unchecked {
+  background-color: $orange;
+  border-radius: 100%;
+  background-size:  70%;
+}
 
-  th {
-    text-align: left;
+.checkmark {
+  padding: 0;
+
+  a {
+    margin-left: 0.9375rem;
+    margin-top: 10px;
   }
+}
+
+.todo-content {
+  margin-top: 6px; 
+}
+
+.unchecked {
+  background-image: none;
 }
