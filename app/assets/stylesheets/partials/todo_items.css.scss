@@ -1,5 +1,10 @@
 /* Todo Items styles */
 
+.todo-items li {
+  margin: 1em 0;
+  padding-bottom: 3em;
+}
+
 .checked, .unchecked {
   background-color: $orange;
   border-radius: 100%;

@@ -6,6 +6,7 @@
 
 .logo {
   margin: 0.4em 0;
+  font-size: 2.5rem;
 
   a {
     background: transparent url(asset_path(#{"logo-odot.svg"})) no-repeat center center;
@@ -20,5 +21,6 @@
   color: #FFF;
   text-align: center;
   padding: 0.5em;
+  margin-bottom: 0;
   font-size: 1.5rem;
 }
