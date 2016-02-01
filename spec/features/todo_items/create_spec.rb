@@ -7,7 +7,7 @@ describe 'Viewing todo items' do
 
   it 'is successful with valid content' do
     visit_todo_list(todo_list)
-    click_link 'New Todo Item'
+    click_link 'Add Todo Item'
     fill_in 'Content', with: 'Milk'
     click_button 'Save'
 
@@ -19,7 +19,7 @@ describe 'Viewing todo items' do
 
   it 'displays an error with no content' do
     visit_todo_list(todo_list)
-    click_link 'New Todo Item'
+    click_link 'Add Todo Item'
     fill_in 'Content', with: ''
     click_button 'Save'
 
@@ -31,7 +31,7 @@ describe 'Viewing todo items' do
 
   it 'displays an error with content less than 2 characters long' do
     visit_todo_list(todo_list)
-    click_link 'New Todo Item'
+    click_link 'Add Todo Item'
     fill_in 'Content', with: '1'
     click_button 'Save'
 
