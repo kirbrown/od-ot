@@ -13,7 +13,7 @@ describe 'Logging In' do
     click_link 'Sign In'
     fill_in 'Email', with: 'john@doe.com'
     fill_in 'Password', with: 'password1234'
-    click_button 'Log In'
+    click_button 'Sign In'
     
     expect(page).to have_content('Todo Lists')
     expect(page).to have_content('Thanks for logging in!')
@@ -23,7 +23,7 @@ describe 'Logging In' do
     visit new_user_session_path
     fill_in 'Email', with: 'john@doe.com'
     fill_in 'Password', with: 'incorrect'
-    click_button 'Log In'
+    click_button 'Sign In'
 
     expect(page).to have_content('Please check your email and password')
     expect(page).to have_field('Email', with: 'john@doe.com')
