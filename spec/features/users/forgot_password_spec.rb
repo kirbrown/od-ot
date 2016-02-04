@@ -8,7 +8,7 @@ describe 'Forgotten Passwords' do
     click_link 'Forgot Password'
     fill_in 'Email', with: user.email
     expect {
-      click_button 'Reset Password'
+      click_button 'Reset'
     }.to change{ ActionMailer::Base.deliveries.size }.by(1)
   end
 
@@ -16,7 +16,7 @@ describe 'Forgotten Passwords' do
     visit login_path
     click_link 'Forgot Password'
     fill_in 'Email', with: user.email
-    click_button 'Reset Password'
+    click_button 'Reset'
     open_email(user.email)
     current_email.click_link 'http://'
     expect(page).to have_content('Change your password')
@@ -32,7 +32,7 @@ describe 'Forgotten Passwords' do
     visit login_path
     fill_in 'Email', with: user.email
     fill_in 'Password', with: 'newpassword'
-    click_button "Log In"
+    click_button "Sign In"
     expect(page).to have_content('Thanks for logging in!')
   end
 end

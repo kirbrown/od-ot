@@ -6,7 +6,7 @@ describe 'Signing Up' do
 
     visit '/'
     expect(page).to have_content('Sign Up')
-    click_link 'Sign Up'
+    within ('header') { click_link 'Sign Up' }
 
     fill_in 'First name', with: 'John'
     fill_in 'Last name', with: 'Doe'
