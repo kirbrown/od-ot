@@ -11,3 +11,13 @@
   overflow: hidden;
   text-overflow: ellipsis;
 }
+
+.help-text, 
+.error label,
+.error input {
+  color: $red;
+}
+
+.error input:focus {
+  color: $purple;
+}
