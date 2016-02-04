@@ -341,11 +341,11 @@ $input-background: scale-color($primary-color, $lightness: +65%);
 $input-background-focus: scale-color($primary-color, $lightness: +65%);
 $input-background-disabled: $light-gray;
 $input-border: none;
-$input-border-focus: none;
+$input-border-focus: 1px solid $light-gray;
 $input-shadow: none;
 $input-shadow-focus: none;
 $input-cursor-disabled: default;
-$input-transition: box-shadow 0.5s, border-color 0.25s ease-in-out;
+$input-transition: box-shadow 0.5s, border-color 1s ease-in-out;
 $input-number-spinners: true;
 $input-radius: $global-radius;
 
