@@ -11,11 +11,13 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :title %><br>
-    <%= f.text_field :title %>
+  <%= f.label :title, label: "List Title", autofocus: "autofocus" %>
+  <%= f.text_field :title %>
+
+  <div class="row">
+    <div class="small-12 columns text-center">
+      <%= f.submit "Save", class: "button large" %>
+    </div>
   </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+
 <% end %>
