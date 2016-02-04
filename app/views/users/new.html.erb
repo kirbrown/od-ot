@@ -1,6 +1,7 @@
 <%= title 'Registration' %>
 
 <%= form_for(@user) do |f| %>
+
   <% if @user.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
@@ -10,27 +11,73 @@
         <li><%= message %></li>
       <% end %>
       </ul>
+
     </div>
   <% end %>
   
-  <%= f.label :first_name %>
-  <%= f.text_field :first_name %>
-
-  <%= f.label :last_name %>
-  <%= f.text_field :last_name %>
-
-  <%= f.label :email %>
-  <%= f.text_field :email %>
-
-  <%= f.label :password %>
-  <%= f.password_field :password %>
-
-  <%= f.label :password_confirmation %>
-  <%= f.password_field :password_confirmation %>
+  <div class="row">
+    <div class="small-12 columns">
+      <%= f.label :first_name %>
+    </div>
+  </div>
 
   <div class="row">
     <div class="small-12 columns">
-      <%= f.submit "Sign Up", class: "button expanded" %>
+      <%= f.text_field :first_name %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="small-12 columns">
+      <%= f.label :last_name %>
+    </div>
+  </div>
+  
+  <div class="row">
+    <div class="small-12 columns">
+      <%= f.text_field :last_name %>
+    </div>
+  </div>
+  
+  <div class="row">
+    <div class="small-12 columns">
+      <%= f.label :email %>
+    </div>
+  </div>
+  
+  <div class="row">
+    <div class="small-12 columns">
+      <%= f.text_field :email %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="small-12 columns">
+      <%= f.label :password %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="small-12 columns">
+      <%= f.password_field :password %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="small-12 columns">
+      <%= f.label :password_confirmation %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="small-12 columns">
+      <%= f.password_field :password_confirmation %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="small-12 columns text-center">
+      <%= f.submit "Sign Up", class: "button large" %>
     </div>
   </div>
 

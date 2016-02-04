@@ -1,6 +1,7 @@
 <%= title 'Account Settings' %>
 
 <%= form_for(@user) do |f| %>
+
   <% if @user.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
@@ -10,32 +11,77 @@
         <li><%= message %></li>
       <% end %>
       </ul>
+
     </div>
   <% end %>
 
   <fieldset class="fieldset">
     <legend>About You</legend>
     
-    <%= f.label :first_name %>
-    <%= f.text_field :first_name %>
+    <div class="row">
+      <div class="small-12 columns">
+        <%= f.label :first_name %>
+      </div>
+    </div>
 
-    <%= f.label :last_name %>
-    <%= f.text_field :last_name %>
+    <div class="row">
+      <div class="small-12 columns">
+        <%= f.text_field :first_name %>
+      </div>
+    </div>
 
-    <%= f.label :email %>
-    <%= f.text_field :email %>
+    <div class="row">
+      <div class="small-12 columns">
+        <%= f.label :last_name %>
+      </div>
+    </div>
+    
+    <div class="row">
+      <div class="small-12 columns">
+        <%= f.text_field :last_name %>
+      </div>
+    </div>
+    
+    <div class="row">
+      <div class="small-12 columns">
+        <%= f.label :email %>
+      </div>
+    </div>
+    
+    <div class="row">
+      <div class="small-12 columns">
+        <%= f.text_field :email %>
+      </div>
+    </div>
 
   </fieldset>
   
   <fieldset class="fieldset">
     <legend>Change Your Pasword</legend>
 
-    <%= f.label :password %>
-    <%= f.password_field :password %>
+    <div class="row">
+      <div class="small-12 columns">
+        <%= f.label :password %>
+      </div>
+    </div>
 
+    <div class="row">
+      <div class="small-12 columns">
+        <%= f.password_field :password %>
+      </div>
+    </div>
 
-    <%= f.label :password_confirmation %>
-    <%= f.password_field :password_confirmation %>
+    <div class="row">
+      <div class="small-12 columns">
+        <%= f.label :password_confirmation %>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="small-12 columns">
+        <%= f.password_field :password_confirmation %>
+      </div>
+    </div>
 
   </fieldset class="fieldset">
   
