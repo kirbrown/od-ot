@@ -1,9 +1,23 @@
-<%= title 'Reset your password' %>
+<%= title 'Reset Password' %>
 
 <%= form_tag password_resets_path do %>
-  <%= label_tag :email, "Email" %>
-  <%= text_field_tag :email %>
 
-  <br />
-  <%= submit_tag "Reset Password" %>
+  <div class="row">
+    <div class="small-12 columns">
+      <%= label_tag :email, "Email" %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="small-12 columns">
+      <%= text_field_tag :email %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="small-12 columns text-center">
+      <%= submit_tag "Reset", class: "button large" %>
+    </div>
+  </div>
+
 <% end %>
