@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+
   has_secure_password
   
   has_many :todo_lists
@@ -18,4 +19,5 @@ class User < ActiveRecord::Base
   def generate_password_reset_token!
     update_attribute(:password_reset_token, SecureRandom.urlsafe_base64(48))
   end
+
 end

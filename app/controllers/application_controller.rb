@@ -1,10 +1,13 @@
 class ApplicationController < ActionController::Base
+
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
-  add_flash_types :success
+
   rescue_from ActiveRecord::RecordNotFound, with: :render_404
   rescue_from ActiveSupport::MessageVerifier::InvalidSignature, with: :render_error
+
+  add_flash_types :success
 
   private
 
@@ -46,4 +49,5 @@ class ApplicationController < ActionController::Base
       redirect_to new_user_session_path, notice: 'You must be logged in to access that page.'
     end
   end
+
 end

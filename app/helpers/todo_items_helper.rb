@@ -1,2 +1,1 @@
-module TodoItemsHelper
-end
+module TodoItemsHelper; end
