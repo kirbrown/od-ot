@@ -18,7 +18,7 @@ class TodoItemsController < ApplicationController
       flash[:success] = 'Added todo list item.'
       redirect_to todo_list_todo_items_path
     else
-      flash[:error] = 'There was a problem adding that todo list item.'
+      flash[:alert] = 'There was a problem adding that todo list item.'
       render :new
     end
   end
@@ -33,7 +33,7 @@ class TodoItemsController < ApplicationController
       flash[:success] = 'Saved todo list item.'
       redirect_to todo_list_todo_items_path
     else
-      flash[:error] = 'That todo item could not be saved.'
+      flash[:alert] = 'That todo item could not be saved.'
       render :edit
     end
   end
@@ -43,7 +43,7 @@ class TodoItemsController < ApplicationController
     if @todo_item.destroy
       flash[:success] = 'Todo list item was deleted.'
     else
-      flash[:error] = 'Todo list item could not be deleted.'
+      flash[:alert] = 'Todo list item could not be deleted.'
     end
     redirect_to todo_list_todo_items_path
   end
@@ -51,7 +51,7 @@ class TodoItemsController < ApplicationController
   def complete
     @todo_item = @todo_list.todo_items.find(params[:id])
     @todo_item.toggle_completion!
-    redirect_to todo_list_todo_items_path, notice: 'Todo item updated.'
+    redirect_to todo_list_todo_items_path, success: 'Todo item updated.'
   end
 
   def url_options

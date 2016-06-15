@@ -13,7 +13,7 @@ class UserSessionsController < ApplicationController
       flash[:success] = 'Thanks for logging in!'
       redirect_to todo_lists_path
     else
-      flash.now[:error] = 'There was a problem logging in. Please check your email and password.'
+      flash.now[:alert] = 'There was a problem logging in. Please check your email and password.'
       render 'new'
     end
   end
@@ -22,7 +22,7 @@ class UserSessionsController < ApplicationController
     session[:user_id] = nil
     cookies.delete(:remember_me_token)
     reset_session
-    redirect_to root_path, notice: 'You have been logged out.'
+    redirect_to root_path, success: 'You have been logged out.'
   end
 
 end
