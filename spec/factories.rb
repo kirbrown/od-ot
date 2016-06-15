@@ -13,6 +13,6 @@ FactoryGirl.define do
   end
 
   factory :todo_item do
-    content "Todo Item"
+    content 'Todo Item'
   end
 end

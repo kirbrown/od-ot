@@ -1,2 +1,1 @@
-module TodoListsHelper
-end
+module TodoListsHelper; end
