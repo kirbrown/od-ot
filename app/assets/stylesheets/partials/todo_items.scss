@@ -27,3 +27,14 @@
 .unchecked {
   background-image: none;
 }
+
+#todo-list-functions {
+  margin-top: 10px;
+
+  a span.fa {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 1.4em;
+    clear: both;
+  }
+}
