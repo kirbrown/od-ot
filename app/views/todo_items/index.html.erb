@@ -26,29 +26,42 @@
   </div>
 </div>
 
-<ul class='list todo-items no-bullet'>
+<% if @todo_list.todo_items.present? %>
 
-  <% @todo_list.todo_items.each do |todo_item| %>
+  <ul class='list todo-items no-bullet'>
 
-    <li id="<%= dom_id(todo_item) %>" class="todo-item">
-      
-      <div class='small-2 medium-1 columns text-center checkmark'>
-        <% if todo_item.completed? %>
-          <%= link_to 'Mark Incomplete', complete_todo_list_todo_item_path(@todo_list, todo_item), method: :patch, class: 'icon-check checked hide-text' %>
-        <% else %>
-          <%= link_to 'Mark Complete', complete_todo_list_todo_item_path(@todo_list, todo_item), method: :patch, class: 'icon-check unchecked hide-text' %>
-        <% end %>
-      </div>
+    <% @todo_list.todo_items.each do |todo_item| %>
 
-      <div class='small-10 medium-11 columns truncate todo-content' title="<%= todo_item.content %>">
-        <%= link_to todo_item.content, edit_todo_list_todo_item_path(@todo_list, todo_item) %>
-      </div>
-      
-    </li>
+      <li id="<%= dom_id(todo_item) %>" class="todo-item">
 
-  <% end %>
+        <div class='small-2 medium-1 columns text-center checkmark'>
+          <% if todo_item.completed? %>
+            <%= link_to 'Mark Incomplete', complete_todo_list_todo_item_path(@todo_list, todo_item), method: :patch, class: 'icon-check checked hide-text' %>
+          <% else %>
+            <%= link_to 'Mark Complete', complete_todo_list_todo_item_path(@todo_list, todo_item), method: :patch, class: 'icon-check unchecked hide-text' %>
+          <% end %>
+        </div>
 
-</ul>
+        <div class='small-10 medium-11 columns truncate todo-content' title="<%= todo_item.content %>">
+          <%= link_to todo_item.content, edit_todo_list_todo_item_path(@todo_list, todo_item) %>
+        </div>
+
+      </li>
+
+    <% end %>
+
+  </ul>
+
+<% else %>
+
+  <div class='row blank-slate text-center'>
+    <div class="small-12 columns">
+      <p>You don't have any todo items in this list yet!</p>
+      <%= link_to 'Add New', new_todo_list_todo_item_path(@todo_list), class: 'button large' %>
+    </div>
+  </div>
+
+<% end %>
 
 <!-- Email modal -->
 <div id='email-modal' class='reveal tiny' data-reveal>
@@ -58,6 +71,6 @@
   <%= form_tag email_todo_list_path(@todo_list), method: :put do %>
     <%= label_tag :destination, 'What email address would you like to send this list to?' %>
     <%= text_field_tag :destination, '', autofocus: 'autofocus' %>
-    <%= submit_tag 'Send this list', class: 'button expanded submit' %>
+    <%= submit_tag 'Send this list', class: 'button large centered' %>
   <% end %>
 </div>
