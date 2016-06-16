@@ -39,7 +39,7 @@ RSpec.describe PasswordResetsController, type: :controller do
 
       it 'sets the flash[:notice] message' do
         post :create, email: 'none@found.com'
-        expect(flash[:notice]).to match(/not found./)
+        expect(flash[:warning]).to match(/not found./)
       end
     end
   end
@@ -78,7 +78,7 @@ RSpec.describe PasswordResetsController, type: :controller do
 
       it 'sets the flash[:notice] message' do
         patch :update, id: 'notfound', user: { password: 'newpassword', password_confirmation: 'newpassword' }
-        expect(flash[:notice]).to match(/not found./)
+        expect(flash[:warning]).to match(/not found./)
       end
     end
 

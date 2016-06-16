@@ -1,5 +1,7 @@
 class PasswordResetsController < ApplicationController
-  
+
+  before_action :set_user, only: [:edit, :update]
+
   def new; end
 
   def create
@@ -16,7 +18,6 @@ class PasswordResetsController < ApplicationController
   end
 
   def edit
-    @user = User.find_by(password_reset_token: params[:id])
     if @user
     else
       render file: 'public/404.html', status: :not_found
@@ -24,7 +25,6 @@ class PasswordResetsController < ApplicationController
   end
 
   def update
-    @user = User.find_by(password_reset_token: params[:id])
     if @user && @user.update_attributes(user_params)
       @user.update_attribute(:password_reset_token, nil)
       session[:user_id] = @user.id
@@ -36,6 +36,10 @@ class PasswordResetsController < ApplicationController
   end
 
   private
+
+  def set_user
+    @user = User.find_by(password_reset_token: params[:id])
+  end
 
   def user_params
     params.require(:user).permit(:password, :password_confirmation)

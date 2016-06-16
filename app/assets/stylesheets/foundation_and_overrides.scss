@@ -46,6 +46,7 @@
 @include foundation-top-bar;
 
 // If you'd like to include motion-ui, you need to install the motion-ui sass package.
-//
-// @include motion-ui-transitions;
-// @include motion-ui-animations;
+
+//@import 'motion-ui/motion-ui';
+//@include motion-ui-transitions;
+//@include motion-ui-animations;
