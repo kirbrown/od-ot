@@ -3,11 +3,11 @@ require 'rails_helper'
 describe User do
   let(:valid_attributes) {
     {
-      :first_name => 'John',
-      :last_name => 'Doe',
-      :email => 'john@doe.com',
-      :password => 'password1234',
-      :password_confirmation => 'password1234'
+      first_name: 'John',
+      last_name: 'Doe',
+      email: 'john@doe.com',
+      password: 'password1234',
+      password_confirmation: 'password1234'
     }
   }
 

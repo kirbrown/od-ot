@@ -18,11 +18,11 @@ RSpec.describe UserSessionsController, type: :controller do
     context 'with correct credentials' do
       let!(:user) { 
         User.create(
-          :first_name => 'John',
-          :last_name => 'Doe',
-          :email => 'john@doe.com',
-          :password => 'password1234',
-          :password_confirmation => 'password1234'
+          first_name: 'John',
+          last_name: 'Doe',
+          email: 'john@doe.com',
+          password: 'password1234',
+          password_confirmation: 'password1234'
         )
       }
 
@@ -82,11 +82,11 @@ RSpec.describe UserSessionsController, type: :controller do
     context 'with an incorrect password' do
       let!(:user) { 
         User.create(
-          :first_name => 'John',
-          :last_name => 'Doe',
-          :email => 'john@doe.com',
-          :password => 'password1234',
-          :password_confirmation => 'password1234'
+          first_name: 'John',
+          last_name: 'Doe',
+          email: 'john@doe.com',
+          password: 'password1234',
+          password_confirmation: 'password1234'
         )
       }
       let(:email) { user.email }

@@ -1,7 +1,7 @@
 <div class='row collapse todo-list-title'>
-  <div class="small-12 columns">
+  <div class='small-12 columns'>
     <%= title @todo_list.title %>
-    <span class="fa fa-caret-down"></span>
+    <span class='fa fa-caret-down'></span>
   </div>
 </div>
 
@@ -56,7 +56,7 @@
     <span aria-hidden='true'>&times;</span>
   </button>
   <%= form_tag email_todo_list_path(@todo_list), method: :put do %>
-    <%= label_tag :destination, 'What email address would you like to send this to?' %>
+    <%= label_tag :destination, 'What email address would you like to send this list to?' %>
     <%= text_field_tag :destination, '', autofocus: 'autofocus' %>
     <%= submit_tag 'Send this list', class: 'button expanded submit' %>
   <% end %>

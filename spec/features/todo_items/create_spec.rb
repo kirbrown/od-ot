@@ -23,9 +23,9 @@ describe 'Viewing todo items' do
     fill_in 'Content', with: ''
     click_button 'Save'
 
-    within 'div.flash' do
-      expect(page).to have_content('There was a problem adding that todo list item.')
-    end
+    # within 'div.flash' do
+    #   expect(page).to have_content('There was a problem adding that todo list item.')
+    # end
     expect(page).to have_content(/can't be blank/i)
   end
 
@@ -35,9 +35,9 @@ describe 'Viewing todo items' do
     fill_in 'Content', with: '1'
     click_button 'Save'
 
-    within 'div.flash' do
-      expect(page).to have_content('There was a problem adding that todo list item.')
-    end
+    # within 'div.flash' do
+    #   expect(page).to have_content('There was a problem adding that todo list item.')
+    # end
     expect(page).to have_content(/is too short/i)
   end
 end

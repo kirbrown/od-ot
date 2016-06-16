@@ -4,10 +4,10 @@ RSpec.describe 'todo_lists/index', type: :view do
   before(:each) do
     assign(:todo_lists, [
       TodoList.create!(
-        :title => 'Title'
+        title: 'Title'
       ),
       TodoList.create!(
-        :title => 'Title'
+        title: 'Title'
       )
     ])
   end
