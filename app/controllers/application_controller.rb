@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
   rescue_from ActiveRecord::RecordNotFound, with: :render_404
   rescue_from ActiveSupport::MessageVerifier::InvalidSignature, with: :render_error
 
-  add_flash_types :success
+  add_flash_types :success, :warning
 
   private
 

@@ -1,8 +1,5 @@
-# Place all the behaviors and hooks related to the matching controller here.
-# All this logic will automatically be available in application.js.
-# You can use CoffeeScript in this file: http://coffeescript.org/
-
 $(document).on 'page:change', ->
+  # Hide todo list functions buttons
   $('.todo-list-title').on 'click', (event) ->
     event.preventDefault()
     $functions = $('#todo-list-functions')
@@ -12,3 +9,6 @@ $(document).on 'page:change', ->
     if $functions.is(':visible')
       $('.todo-list-title span').removeClass('fa-caret-up').addClass('fa-caret-down')
       return $functions.slideUp('fast')
+
+  # Email modal activation
+  new (Foundation.Reveal)($('#email-modal'))
