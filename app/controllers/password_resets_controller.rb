@@ -20,12 +20,12 @@ class PasswordResetsController < ApplicationController
   def edit
     if @user
     else
-      render file: 'public/404.html', status: :not_found
+      render file: 'public/404.html', status: :not_found, layout: false
     end
   end
 
   def update
-    if @user && @user.update_attributes(user_params)
+    if @user && @user.update_attributes(user_params).present?
       @user.update_attribute(:password_reset_token, nil)
       session[:user_id] = @user.id
       redirect_to todo_lists_path, success: 'Password updated.'

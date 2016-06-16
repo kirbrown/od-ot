@@ -24,7 +24,7 @@ describe 'Completing todo items' do
       visit_todo_list todo_list
 
       within dom_id_for(completed_todo_item) do
-        expect(page).to have_content("Mark Incomplete")
+        expect(page).to have_content('Mark Incomplete')
       end
     end
 

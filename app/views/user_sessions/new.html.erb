@@ -2,46 +2,46 @@
 
 <%= form_tag user_sessions_path do %>
   
-  <div class="row">
-    <div class="small-12 columns">
-      <%= label_tag :email, "Email Address" %>
+  <div class='row'>
+    <div class='small-12 columns'>
+      <%= label_tag :email, 'Email Address' %>
     </div>
   </div>
   
-  <div class="row">
-    <div class="small-12 columns">
+  <div class='row'>
+    <div class='small-12 columns'>
       <%= text_field_tag :email, params[:email] %>
     </div>
   </div>
   
-  <div class="row">
-    <div class="small-12 columns">
-      <%= label_tag :password, "Password" %>
+  <div class='row'>
+    <div class='small-12 columns'>
+      <%= label_tag :password, 'Password' %>
     </div>
   </div>
     
-  <div class="row">
-    <div class="small-12 columns">   
+  <div class='row'>
+    <div class='small-12 columns'>   
       <%= password_field_tag :password %>
     </div>
   </div>
   
-  <div class="row">
-    <div class="small-12 columns">
+  <div class='row'>
+    <div class='small-12 columns'>
       <%= check_box_tag :remember_me %>
-      <%= label_tag :remember_me, "Remember me?" %>
+      <%= label_tag :remember_me, 'Remember me?' %>
     </div>
   </div>
     
-  <div class="row">
-    <div class="small-12 columns text-center">
-      <%= submit_tag "Sign In", class: "button expanded" %>
+  <div class='row'>
+    <div class='small-12 columns text-center'>
+      <%= submit_tag 'Sign In', class: 'button expanded' %>
     </div>
   </div>
   
-  <div class="row">
-    <%= link_to "Forgot Password", new_password_reset_path, class: "small-6 columns text-left" %>
-    <%= link_to "Sign Up", new_user_path, class: "small-6 columns text-right" %>
+  <div class='row'>
+    <%= link_to 'Forgot Password', new_password_reset_path, class: 'small-6 columns text-left' %>
+    <%= link_to 'Sign Up', new_user_path, class: 'small-6 columns text-right' %>
   </div>
 
 <% end %>

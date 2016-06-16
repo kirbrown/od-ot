@@ -19,7 +19,6 @@ class TodoItemsController < ApplicationController
       flash[:success] = 'Added todo list item.'
       redirect_to todo_list_todo_items_path
     else
-      flash[:alert] = 'There was a problem adding that todo list item.'
       render :new
     end
   end
@@ -31,7 +30,6 @@ class TodoItemsController < ApplicationController
       flash[:success] = 'Saved todo list item.'
       redirect_to todo_list_todo_items_path
     else
-      flash[:alert] = 'That todo item could not be saved.'
       render :edit
     end
   end
