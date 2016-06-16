@@ -3,30 +3,11 @@
 <% if @todo_lists.present? %>
 
   <ul class='list todo-lists no-bullet'>
-
-    <% @todo_lists.each do |todo_list| %>
-
-      <li id="<%= dom_id(todo_list) %>" class='clearfix'>
-
-        <%= link_to todo_list_todo_items_path(todo_list), class: 'row' do %>
-          <div class='small-10 columns truncate' title="<%= todo_list.title %>"><%= todo_list.title %></div>
-
-          <div class='small-2 columns text-center'><span class="badge"><%= todo_list.todo_items.size %></span></div>
-        <% end %>
-
-      </li>
-
-    <% end %>
-
+    <%= render partial: 'todo_list', collection: @todo_lists %>
   </ul>
 
 <% else %>
 
-  <div class='row blank-slate text-center'>
-    <div class="small-12 columns">
-      <p>You don't have any todo lists yet!</p>
-      <%= link_to 'Add New', new_todo_list_path, class: 'button large' %>
-    </div>
-  </div>
+  <%= render partial: 'blank_slate' %>
 
 <% end %>
