@@ -69,7 +69,7 @@ RSpec.describe UserSessionsController, type: :controller do
 
       it 'sets the flash error message' do
         post :create, email: email, password: password
-        expect(flash[:error]).to eq('There was a problem logging in. Please check your email and password.')
+        expect(flash[:alert]).to eq('There was a problem logging in. Please check your email and password.')
       end
     end
 
@@ -114,8 +114,8 @@ RSpec.describe UserSessionsController, type: :controller do
 
       it 'sets the flash message' do
         delete :destroy
-        expect(flash[:notice]).to_not be_blank
-        expect(flash[:notice]).to match(/logged out/)
+        expect(flash[:success]).to_not be_blank
+        expect(flash[:success]).to match(/logged out/)
       end
 
       it 'removes the session[:user_id] key' do
