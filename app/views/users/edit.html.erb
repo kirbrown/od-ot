@@ -24,4 +24,12 @@
 
   <%= f.submit 'Save', class: 'button large centered' %>
 
+  <fieldset class='fieldset'>
+    <legend>Unhappy?</legend>
+
+    <div class='text-center'>
+      <%= link_to 'Delete account', user_path(@user), class: 'alert button large', method: :delete, data: { confirm: 'Are you sure you want to delete you profile with all lists and its items? This is no undo!' } %>
+    </div>
+  </fieldset>
+
 <% end %>

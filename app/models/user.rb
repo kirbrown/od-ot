@@ -4,7 +4,7 @@ class User < ActiveRecord::Base
 
   has_secure_password
   
-  has_many :todo_lists
+  has_many :todo_lists, dependent: :destroy
 
   validates :first_name, :last_name, :email, presence: true
   validates :email, uniqueness: true,
