@@ -6,12 +6,10 @@ describe 'Deleting todo lists' do
   before { sign_in todo_list.user, password: 'password1234' }
 
   it 'is successful when clicking the destroy link' do
-    pending 'Deleting todo lists'
     visit '/todo_lists'
+    click_link todo_list.title
 
-    within dom_id_for(todo_list) do
-      click_link 'Delete'
-    end
+    click_link 'Delete'
 
     expect(page).to_not have_content(todo_list.title)
     expect(TodoList.count).to eq(0)

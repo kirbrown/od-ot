@@ -2,4 +2,12 @@
 
 <%= form_for [@todo_list, @todo_item], builder: FoundationFormBuilder do |form| %>
   <%= render partial: 'form', locals: { form: form } %>
+
+  <div class='small-12 medium-6 columns text-center'>
+    <%= form.submit 'Save', class: 'button large centered' %>
+  </div>
+
+  <div class='small-12 medium-6 columns text-center'>
+    <%= link_to 'Delete', todo_list_todo_item_path(@todo_list, @todo_item), class: 'alert button large', method: :delete, data: { confirm: 'Are you sure you want to delete this list item? This is no undo!' } %>
+  </div>
 <% end %>
