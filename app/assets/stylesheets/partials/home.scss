@@ -1,0 +1,26 @@
+.home-page {
+  color: $blue;
+}
+
+.hero {
+  text-align: center;
+
+  h2 {
+    margin: 50px 0 20px;
+  }
+}
+
+@media only screen and (min-width: 40em) {
+  .hero {
+    background: url('home-iphone.png') no-repeat 90% center;
+    background-size: 350px;
+    height: 350px;
+    text-align: left;
+  }
+}
+
+@media only screen and (min-width: 50em) {
+  .hero {
+    background-size: 450px;
+  }
+}

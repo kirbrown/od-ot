@@ -1,6 +1,12 @@
 /* Footer styles */
 
 .global-footer {
-  margin-top: 20px;
+  display: block;
+  margin: 20px auto;
   font-size: .88em;
+
+  a {
+    display: block;
+    margin-bottom: 50px;
+  }
 }
