@@ -2,4 +2,7 @@
 
 <%= form_for [@todo_list, @todo_item], builder: FoundationFormBuilder do |form| %>
   <%= render partial: 'form', locals: { form: form } %>
+
+  <%= form.submit 'Save', class: 'button large centered' %>
+
 <% end %>
