@@ -7,11 +7,17 @@ module ApplicationHelper
 
   def new_item_link
     if @todo_list && !@todo_list.new_record?
-      text, path = 'Todo Item', new_todo_list_todo_item_path(@todo_list)
+      path = new_todo_list_todo_item_path(@todo_list)
     else
-      text, path = 'Todo List', new_todo_list_path
+      path = new_todo_list_path
     end
-    link_to "Add #{text}", path, class: 'icon-new float-right hide-text'
+
+    link_to path do
+      html = <<-HTML
+        <span class='fa fa-plus float-right'></span>
+      HTML
+      html.html_safe
+    end
   end
 
 end
