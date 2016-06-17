@@ -45,7 +45,7 @@ class TodoItemsController < ApplicationController
 
   def complete
     @todo_item.toggle_completion!
-    redirect_to todo_list_todo_items_path, success: 'Todo item updated.'
+    redirect_to todo_list_todo_items_path, success: 'Todo item status updated.'
   end
 
   def url_options
