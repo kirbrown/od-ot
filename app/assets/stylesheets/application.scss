@@ -1,19 +1,8 @@
 /*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
- * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any styles
- * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
- * file per style scope.
- *
  *= require foundation_and_overrides
  *= require font-awesome
  *= require_self
- */
+*/
 
 @import 'modules/variables';
 @import 'modules/mixins';
@@ -23,6 +12,7 @@
 @import 'partials/footer';
 @import 'partials/forms';
 @import 'partials/lists';
+@import 'partials/home';
 @import 'partials/todo_lists';
 @import 'partials/todo_items';
 @import 'partials/blank-slate';
@@ -36,14 +26,7 @@
 }
 
 .callout {
-  //margin: 0;
-  //position: absolute;
-  //top: 0;
-  //left: 0;
-  //right: 0;
-  //z-index: 1;
-
-  @media screen and (max-width: 600px) {
+  @media only screen and (max-width: 600px) {
     padding: 1rem 2.5rem 1rem 1rem;
   }
 }
