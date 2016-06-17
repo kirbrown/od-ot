@@ -1,0 +1,10 @@
+<div id='email-modal' class='reveal tiny' data-reveal>
+  <button class='close-button' data-close aria-label='Close modal' type='button'>
+    <span aria-hidden='true'>&times;</span>
+  </button>
+  <%= form_tag email_todo_list_path(@todo_list), method: :put do %>
+    <%= label_tag :destination, 'What email address would you like to send this list to?' %>
+    <%= text_field_tag :destination, '', autofocus: 'autofocus' %>
+    <%= submit_tag 'Send this list', class: 'button large centered' %>
+  <% end %>
+</div>

@@ -30,13 +30,7 @@
       </div>
     </div>
 
-    <footer class='row global-footer'>
-      <div class='small-12 small-centered medium-8 medium-centered large-5 large-centered columns text-center'>
-        <% if logged_in? %>
-          <%= link_to 'Account Settings', edit_user_path(current_user) %>
-        <% end %>
-      </div>
-    </footer>
+    <%= render partial: 'layouts/footer' %>
 
   </body>
 </html>

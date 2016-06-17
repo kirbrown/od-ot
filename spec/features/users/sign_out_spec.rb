@@ -9,9 +9,9 @@ describe 'Logging Out' do
     fill_in 'Password', with: 'password1234'
     click_button 'Sign In'
 
-    expect(page).to have_content('Sign Out')
-    click_link 'Sign Out'
-    expect(page).to_not have_content('Sign Out')
-    expect(page).to have_content('Sign In')
+    expect(page).to have_css('.fa-sign-out')
+    page.find('.sign_out').click
+    expect(page).to_not have_css('.fa-sign-out')
+    expect(page).to have_content('Sign Up')
   end
 end

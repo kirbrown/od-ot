@@ -50,7 +50,7 @@ RSpec.describe UserSessionsController, type: :controller do
 
       it 'sets the flash success message' do
         post :create, email: 'john@doe.com', password: 'password1234'
-        expect(flash[:success]).to eq('Thanks for logging in!')
+        expect(flash[:success]).to eq('Thanks for signing in!')
       end
 
       it 'sets the remember_me_token cookie if chosen' do
@@ -69,7 +69,7 @@ RSpec.describe UserSessionsController, type: :controller do
 
       it 'sets the flash error message' do
         post :create, email: email, password: password
-        expect(flash[:alert]).to eq('There was a problem logging in. Please check your email and password.')
+        expect(flash[:error]).to eq('There was a problem signing in. Please check your email and password.')
       end
     end
 
@@ -115,7 +115,7 @@ RSpec.describe UserSessionsController, type: :controller do
       it 'sets the flash message' do
         delete :destroy
         expect(flash[:success]).to_not be_blank
-        expect(flash[:success]).to match(/logged out/)
+        expect(flash[:success]).to match(/signed out/)
       end
 
       it 'removes the session[:user_id] key' do

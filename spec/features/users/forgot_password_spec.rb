@@ -4,7 +4,7 @@ describe 'Forgotten Passwords' do
   let!(:user) { create(:user) }
 
   it 'sends a user an email' do
-    visit login_path
+    visit sign_in_path
     click_link 'Forgot Password'
     fill_in 'Email', with: user.email
     expect {
@@ -13,7 +13,7 @@ describe 'Forgotten Passwords' do
   end
 
   it 'resets a password when following the email link' do
-    visit login_path
+    visit sign_in_path
     click_link 'Forgot Password'
     fill_in 'Email', with: user.email
     click_button 'Send Instructions'
@@ -28,11 +28,11 @@ describe 'Forgotten Passwords' do
     expect(page.current_path).to eq(todo_lists_path)
 
     click_link 'Sign Out'
-    expect(page).to have_content('You have been logged out.')
-    visit login_path
+    expect(page).to have_content('You have been signed out.')
+    visit sign_in_path
     fill_in 'Email', with: user.email
     fill_in 'Password', with: 'newpassword'
     click_button 'Sign In'
-    expect(page).to have_content('Thanks for logging in!')
+    expect(page).to have_content('Thanks for signing in!')
   end
 end

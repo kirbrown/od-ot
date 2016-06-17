@@ -10,7 +10,7 @@ describe 'Deleting todo lists' do
     visit '/todo_lists'
 
     within dom_id_for(todo_list) do
-      click_link 'Destroy'
+      click_link 'Delete'
     end
 
     expect(page).to_not have_content(todo_list.title)

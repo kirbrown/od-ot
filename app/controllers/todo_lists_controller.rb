@@ -57,7 +57,7 @@ class TodoListsController < ApplicationController
   def destroy
     @todo_list.destroy
     respond_to do |format|
-      format.html { redirect_to todo_lists_url, success: 'Todo list was successfully destroyed.' }
+      format.html { redirect_to todo_lists_url, success: 'Todo list was successfully deleted.' }
       format.json { head :no_content }
     end
   end
@@ -68,7 +68,7 @@ class TodoListsController < ApplicationController
     if destination =~ /@/ && notifier.deliver_now
       redirect_to todo_list_todo_items_path(@todo_list), success: 'Todo list send.'
     else
-      redirect_to todo_list_todo_items_path(@todo_list), alert: 'Todo list could not be sent.'
+      redirect_to todo_list_todo_items_path(@todo_list), error: 'Todo list could not be sent.'
     end
   end
 

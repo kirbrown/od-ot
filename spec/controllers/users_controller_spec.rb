@@ -131,7 +131,7 @@ RSpec.describe UsersController, type: :controller do
         # specifies that the User created on the previous line
         # receives the :update_attributes message with whatever params are
         # submitted in the request.
-        allow_any_instance_of(User).to receive(:update).with({ :first_name => 'MyString' })
+        allow_any_instance_of(User).to receive(:update).with({ first_name: 'MyString' })
         put :update, {id: user.to_param, user: { first_name: 'MyString' }}, valid_session
       end
 
