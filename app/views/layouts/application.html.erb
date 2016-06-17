@@ -5,6 +5,7 @@
       <%= yield :title %>Od-ot
     </title>
     <meta name='viewport' content='width=device-width, initial-scale=1.0' />
+    <link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
     <%= csrf_meta_tags %>
@@ -32,7 +33,7 @@
     <footer class='row global-footer'>
       <div class='small-12 small-centered medium-8 medium-centered large-5 large-centered columns text-center'>
         <% if logged_in? %>
-          <%= link_to 'Settings', edit_user_path(current_user) %>
+          <%= link_to 'Account Settings', edit_user_path(current_user) %>
         <% end %>
       </div>
     </footer>
