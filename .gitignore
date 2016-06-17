@@ -16,3 +16,6 @@
 /log/*
 !/log/.keep
 /tmp
+
+# Ignore config/database.yml file
+/config/database.yml
