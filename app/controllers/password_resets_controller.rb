@@ -10,9 +10,9 @@ class PasswordResetsController < ApplicationController
       user.generate_password_reset_token!
       Notifier.password_reset(user).deliver_now
       flash[:success] = 'Password reset instructions sent! Please check your email.'
-      redirect_to login_path
+      redirect_to sign_in_path
     else
-      flash.now[:warning] = 'Email not found.'
+      flash.now[:notice] = 'Email not found.'
       render 'new'
     end
   end
@@ -30,7 +30,7 @@ class PasswordResetsController < ApplicationController
       session[:user_id] = @user.id
       redirect_to todo_lists_path, success: 'Password updated.'
     else
-      flash.now[:warning] = 'Password reset token not found.'
+      flash.now[:notice] = 'Password reset token not found.'
       render 'edit'
     end
   end

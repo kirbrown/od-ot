@@ -4,7 +4,7 @@
       <span class='fa fa-arrow-left'></span>
     <% end %>
   <% else %>
-    <%= link_to logout_path, method: :delete, title: 'Log Out' do %>
+    <%= link_to sign_out_path, method: :delete, title: 'Sign Out', class: 'sign_out' do %>
       <span class='fa fa-sign-out'></span>
     <% end %>
   <% end %>

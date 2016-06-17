@@ -10,10 +10,10 @@ class UserSessionsController < ApplicationController
         cookies.permanent.signed[:remember_me_token] = signed_token
       end
       session[:user_id] = user.id
-      flash[:success] = 'Thanks for logging in!'
+      flash[:success] = 'Thanks for signing in!'
       redirect_to todo_lists_path
     else
-      flash.now[:alert] = 'There was a problem logging in. Please check your email and password.'
+      flash.now[:error] = 'There was a problem signing in. Please check your email and password.'
       render 'new'
     end
   end
@@ -22,7 +22,7 @@ class UserSessionsController < ApplicationController
     session[:user_id] = nil
     cookies.delete(:remember_me_token)
     reset_session
-    redirect_to root_path, success: 'You have been logged out.'
+    redirect_to root_path, success: 'You have been signed out.'
   end
 
 end

@@ -1,0 +1,27 @@
+<footer class='row global-footer'>
+  <div class='small-12 small-centered medium-8 medium-centered large-5 large-centered columns text-center'>
+    <% if logged_in? %>
+      <%= link_to 'Account Settings', edit_user_path(current_user) %>
+
+    <% else %>
+
+      <% if params[:controller] == 'users' %>
+
+        <%= link_to 'Forgot Password', new_password_reset_path, class: 'small-6 columns text-left' %>
+        <%= link_to 'Sign In', sign_in_path, class: 'small-6 columns text-right' %>
+
+      <% elsif params[:controller] == 'user_sessions' %>
+
+        <%= link_to 'Forgot Password', new_password_reset_path, class: 'small-6 columns text-left' %>
+        <%= link_to 'Sign Up', sign_up_path, class: 'small-6 columns text-right' %>
+
+      <% elsif params[:controller] == 'password_resets' %>
+
+        <%= link_to 'Sign In', sign_in_path, class: 'small-6 columns text-left' %>
+        <%= link_to 'Sign Up', sign_up_path, class: 'small-6 columns text-right' %>
+
+      <% end %>
+
+    <% end %>
+  </div>
+</footer>

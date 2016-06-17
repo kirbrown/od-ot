@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
   rescue_from ActiveRecord::RecordNotFound, with: :render_404
   rescue_from ActiveSupport::MessageVerifier::InvalidSignature, with: :render_error
 
-  add_flash_types :success, :warning
+  add_flash_types :success, :error
 
   private
 
@@ -46,7 +46,7 @@ class ApplicationController < ActionController::Base
     if current_user
       true
     else
-      redirect_to new_user_session_path, warning: 'You must be logged in to access that page.'
+      redirect_to sign_in_path, notice: 'You must be logged in to access that page.'
     end
   end
 

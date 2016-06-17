@@ -7,6 +7,7 @@
 @import 'modules/variables';
 @import 'modules/mixins';
 @import 'modules/helpers';
+@import 'partials/flash';
 @import 'partials/icons';
 @import 'partials/header';
 @import 'partials/footer';
@@ -16,22 +17,3 @@
 @import 'partials/todo_lists';
 @import 'partials/todo_items';
 @import 'partials/blank-slate';
-
-.fa {
-  display: initial;
-  font-size: 1.7em;
-}
-
-.row .row {
-  margin: 0;
-}
-
-.close-button {
-  outline: none;
-}
-
-.callout {
-  @media only screen and (max-width: 600px) {
-    padding: 1rem 2.5rem 1rem 1rem;
-  }
-}

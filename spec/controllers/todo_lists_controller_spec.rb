@@ -25,13 +25,13 @@ RSpec.describe TodoListsController, type: :controller do
   # adjust the attributes here as well.
   let(:valid_attributes) {
     {
-      :title => 'My Title'
+      title: 'My Title'
     }
   }
 
   let(:invalid_attributes) {
     {
-      :title => ''
+      title: ''
     }
   }
 
@@ -40,7 +40,7 @@ RSpec.describe TodoListsController, type: :controller do
   # TodoListsController. Be sure to keep this updated too.
   let(:valid_session) {
     {
-      :title => 'My Title'
+      title: 'My Title'
     }
   }
   let!(:user) { create(:user) }
@@ -66,7 +66,7 @@ RSpec.describe TodoListsController, type: :controller do
   describe 'GET #show' do
     it 'assigns the requested todo_list as @todo_list for the logged in user' do
       todo_list = user.todo_lists.create! valid_attributes
-      get :show, {:id => todo_list.to_param}, valid_session
+      get :show, { id: todo_list.to_param }, valid_session
       expect(assigns(:todo_list)).to eq(todo_list)
       expect(assigns(:todo_list).user).to eq(user)
     end
@@ -83,7 +83,7 @@ RSpec.describe TodoListsController, type: :controller do
   describe 'GET #edit' do
     it 'assigns the requested todo_list as @todo_list' do
       todo_list = user.todo_lists.create! valid_attributes
-      get :edit, {:id => todo_list.to_param}, valid_session
+      get :edit, { id: todo_list.to_param }, valid_session
       expect(assigns(:todo_list)).to eq(todo_list)
       expect(assigns(:todo_list).user).to eq(user)
     end
@@ -93,30 +93,30 @@ RSpec.describe TodoListsController, type: :controller do
     context 'with valid params' do
       it 'creates a new TodoList' do
         expect {
-          post :create, {:todo_list => valid_attributes}, valid_session
+          post :create, { todo_list: valid_attributes }, valid_session
         }.to change(TodoList, :count).by(1)
       end
 
       it 'assigns a newly created todo_list as @todo_list' do
-        post :create, {:todo_list => valid_attributes}, valid_session
+        post :create, { todo_list: valid_attributes }, valid_session
         expect(assigns(:todo_list)).to be_a(TodoList)
         expect(assigns(:todo_list)).to be_persisted
       end
 
       it 'redirects to the created todo_list' do
-        post :create, {:todo_list => valid_attributes}, valid_session
+        post :create, { todo_list: valid_attributes }, valid_session
         expect(response).to redirect_to(TodoList.last)
       end
 
       it 'creates a todo list for the current user' do
-        post :create, {:todo_list => valid_attributes}, valid_session
+        post :create, { todo_list:  valid_attributes }, valid_session
         todo_list = TodoList.last
         expect(todo_list.user).to eq(user)
       end
 
       it 'does not allow users to create todo_lists for other users' do
         other_user = create(:user)
-        post :create, {:todo_list => valid_attributes.merge(user_id: other_user.id)}, valid_session
+        post :create, { todo_list: valid_attributes.merge(user_id: other_user.id) }, valid_session
         todo_list = TodoList.last
         expect(todo_list.user).to eq(user)
       end
@@ -124,12 +124,12 @@ RSpec.describe TodoListsController, type: :controller do
 
     context 'with invalid params' do
       it 'assigns a newly created but unsaved todo_list as @todo_list' do
-        post :create, {:todo_list => invalid_attributes}, valid_session
+        post :create, { todo_list: invalid_attributes }, valid_session
         expect(assigns(:todo_list)).to be_a_new(TodoList)
       end
 
       it "re-renders the 'new' template" do
-        post :create, {:todo_list => invalid_attributes}, valid_session
+        post :create, { todo_list: invalid_attributes }, valid_session
         expect(response).to render_template('new')
       end
     end
@@ -138,7 +138,7 @@ RSpec.describe TodoListsController, type: :controller do
       it 'assigns a newly created but unsaved todo_list as @todo_list' do
         # Trigger the behavior that occurs when invalid params are submitted
         allow_any_instance_of(TodoList).to receive(:save).and_return(false)
-        post :create, {:todo_list => { :title => 'invalid value' }}, valid_session
+        post :create, { todo_list: { title: 'invalid value' } }, valid_session
         expect(assigns(:todo_list)).to be_a_new(TodoList)
         expect(assigns(:todo_list).user).to eq(user)
       end
@@ -146,7 +146,7 @@ RSpec.describe TodoListsController, type: :controller do
       it "re-renders the 'new' template" do
         # Trigger the behavior that occurs when invalid params are submitted
         allow_any_instance_of(TodoList).to receive(:save).and_return(false)
-        post :create, {:todo_list => { :title => 'invalid value' }}, valid_session
+        post :create, { todo_list: { title: 'invalid value' } }, valid_session
         expect(response).to render_template('new')
       end
     end
@@ -160,20 +160,20 @@ RSpec.describe TodoListsController, type: :controller do
         # specifies that the TodoList created on the previous line
         # receives the :update_attributes message with whatever params are
         # submitted in the request.
-        allow_any_instance_of(TodoList).to receive(:update).with({ :title => 'MyString' })
-        put :update, {:id => todo_list.to_param, :todo_list => { :title => 'MyString' }}, valid_session
+        allow_any_instance_of(TodoList).to receive(:update).with({ title: 'MyString' })
+        put :update, { id: todo_list.to_param, todo_list: { title: 'MyString' } }, valid_session
       end
 
       it 'assigns the requested todo_list as @todo_list' do
         todo_list = user.todo_lists.create! valid_attributes
-        put :update, {:id => todo_list.to_param, :todo_list => valid_attributes}, valid_session
+        put :update, { id: todo_list.to_param, todo_list: valid_attributes }, valid_session
         expect(assigns(:todo_list)).to eq(todo_list)
         expect(assigns(:todo_list).user).to eq(user)
       end
 
       it 'redirects to the todo_list' do
         todo_list = user.todo_lists.create! valid_attributes
-        put :update, {:id => todo_list.to_param, :todo_list => valid_attributes}, valid_session
+        put :update, { id: todo_list.to_param, todo_list: valid_attributes }, valid_session
         expect(response).to redirect_to(todo_list)
       end
     end
@@ -183,7 +183,7 @@ RSpec.describe TodoListsController, type: :controller do
         todo_list = user.todo_lists.create! valid_attributes
         # Trigger the behavior that occurs when invalid params are submitted
         allow_any_instance_of(TodoList).to receive(:save).and_return(false)
-        put :update, {:id => todo_list.to_param, :todo_list => { :title => 'invalid value' }}, valid_session
+        put :update, { id: todo_list.to_param, todo_list: { title: 'invalid value' } }, valid_session
         expect(assigns(:todo_list)).to eq(todo_list)
       end
 
@@ -191,7 +191,7 @@ RSpec.describe TodoListsController, type: :controller do
         todo_list = user.todo_lists.create! valid_attributes
         # Trigger the behavior that occurs when invalid params are submitted
         allow_any_instance_of(TodoList).to receive(:save).and_return(false)
-        put :update, {:id => todo_list.to_param, :todo_list => { :title => 'invalid value' }}, valid_session
+        put :update, { id: todo_list.to_param, todo_list: { title: 'invalid value' } }, valid_session
         expect(response).to render_template('edit')
       end
     end
@@ -201,13 +201,13 @@ RSpec.describe TodoListsController, type: :controller do
     it 'destroys the requested todo_list' do
       todo_list = user.todo_lists.create! valid_attributes
       expect {
-        delete :destroy, {:id => todo_list.to_param}, valid_session
+        delete :destroy, { id: todo_list.to_param }, valid_session
       }.to change(user.todo_lists, :count).by(-1)
     end
 
     it 'redirects to the todo_lists list' do
       todo_list = user.todo_lists.create! valid_attributes
-      delete :destroy, {:id => todo_list.to_param}, valid_session
+      delete :destroy, { id: todo_list.to_param }, valid_session
       expect(response).to redirect_to(todo_lists_url)
     end
   end
