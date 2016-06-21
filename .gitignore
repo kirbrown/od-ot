@@ -19,3 +19,4 @@
 
 # Ignore config/database.yml file
 /config/database.yml
+/config/application.yml
