@@ -38,7 +38,6 @@ group :test do
   gem 'capybara', '~> 2.5'
   gem 'shoulda-matchers', '~> 3.0', '>= 3.0.1'
   gem 'capybara-email', '~> 2.4'
-  gem 'codeclimate-test-reporter', require: nil
 end
 
 group :production do
