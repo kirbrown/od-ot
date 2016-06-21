@@ -5,6 +5,4 @@
 [![Test Coverage](https://codeclimate.com/github/k1r8r0wn/od-ot/badges/coverage.svg)](https://codeclimate.com/github/k1r8r0wn/od-ot/coverage)
 [![Issue Count](https://codeclimate.com/github/k1r8r0wn/od-ot/badges/issue_count.svg)](https://codeclimate.com/github/k1r8r0wn/od-ot)
 
----
-
 Simple to-do rails application using Test-Driven Development with RSpec and Capybara.
