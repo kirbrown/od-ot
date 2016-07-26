@@ -1,4 +1,4 @@
-$(document).on 'page:change', ->
+$(document).on 'ready page:load', ->
   # Hide todo list functions buttons
   $('.todo-list-title').on 'click', (event) ->
     event.preventDefault()
