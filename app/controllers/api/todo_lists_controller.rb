@@ -13,9 +13,17 @@ class Api::TodoListsController < ApplicationController
   def create
     list = TodoList.new(list_params)
     if list.save
-      head 200
+      render json: {
+          status: 200,
+          message: 'Successfully created To-do List',
+          todo_list: list
+      }.to_json
     else
-      head 500
+      render json: {
+          status: 500,
+          message: list.errors,
+          todo_list: list
+      }.to_json
     end
   end
 
