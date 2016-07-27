@@ -8,7 +8,7 @@ class Api::TodoListsController < ApplicationController
   end
 
   def show
-    render json: @list
+    render json: @list.as_json(include:[:todo_items])
   end
 
   def create
