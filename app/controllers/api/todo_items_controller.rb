@@ -1,6 +1,5 @@
-class Api::TodoItemsController < ApplicationController
+class Api::TodoItemsController < Api::BaseController
 
-  skip_before_action :verify_authenticity_token
   before_action :find_todo_list
   before_action :find_todo_item, only: [:update, :destroy]
 
