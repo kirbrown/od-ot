@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  namespace :api do
+    resources :todo_lists
+  end
+
   root 'pages#home'
 
   get '/sign_in' => 'user_sessions#new', as: :sign_in
