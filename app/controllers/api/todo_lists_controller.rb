@@ -1,6 +1,5 @@
-class Api::TodoListsController < ApplicationController
+class Api::TodoListsController < Api::BaseController
 
-  skip_before_action :verify_authenticity_token
   before_action :find_todo_list, only: [:show, :update, :destroy]
 
   def index
