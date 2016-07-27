@@ -3,6 +3,7 @@ class Api::TodoListsController < Api::BaseController
   before_action :find_todo_list, only: [:show, :update, :destroy]
 
   def index
+    Rails.logger.info "Current user: #{current_user.inspect}"
     render json: TodoList.all
   end
 
@@ -11,7 +12,7 @@ class Api::TodoListsController < Api::BaseController
   end
 
   def create
-    list = TodoList.new(list_params)
+    list = current_user.todo_lists.new(list_params)
     if list.save
       render status: 200, json: {
         message: 'Successfully created To-do List.',
@@ -53,7 +54,7 @@ class Api::TodoListsController < Api::BaseController
   end
 
   def find_todo_list
-    @list = TodoList.find(params[:id])
+    @list = current_user.todo_lists.find(params[:id])
   end
 
 end
