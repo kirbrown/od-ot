@@ -1,6 +1,7 @@
 class Api::TodoListsController < ApplicationController
-  before_action :find_todo_list, only: [:show, :destroy]
+
   skip_before_action :verify_authenticity_token
+  before_action :find_todo_list, only: [:show, :update, :destroy]
 
   def index
     render json: TodoList.all
@@ -13,25 +14,36 @@ class Api::TodoListsController < ApplicationController
   def create
     list = TodoList.new(list_params)
     if list.save
-      render json: {
-        status: 200,
+      render status: 200, json: {
         message: 'Successfully created To-do List.',
         todo_list: list
       }.to_json
     else
-      render json: {
-        status: 500,
+      render status: 422, json: {
         message: list.errors,
         todo_list: list
       }.to_json
     end
   end
 
+  def update
+    if @list.update(list_params)
+      render status: 200, json: {
+          message: 'Successfully updated.',
+          todo_list: @list
+      }.to_json
+    else
+      render status: 422, json: {
+          message: 'The To-do list could not be updated.',
+          todo_list: @list
+      }.to_json
+    end
+  end
+
   def destroy
     @list.destroy
-    render json: {
-      status: 200,
-      messsage: 'Successfully daleted To-do List.'
+    render status: 200, json: {
+      messsage: 'Successfully deleted To-do List.'
     }.to_json
   end
 
