@@ -13,7 +13,7 @@ gem 'jbuilder'
 
 gem 'bcrypt'
 
-gem 'foundation-rails'
+gem 'foundation-rails', '6.3.0.0'
 gem 'font-awesome-rails'
 
 gem 'figaro'
