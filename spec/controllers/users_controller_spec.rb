@@ -58,7 +58,7 @@ RSpec.describe UsersController, type: :controller do
 
   describe 'GET #new' do
     it 'assigns a new user as @user' do
-      get :new, {}, valid_session
+      get :new, params: { user: valid_session }
       expect(assigns(:user)).to be_a_new(User)
     end
   end
@@ -66,7 +66,7 @@ RSpec.describe UsersController, type: :controller do
   describe 'GET #edit' do
     it 'assigns the requested user as @user' do
       user = User.create! valid_attributes
-      get :edit, {id: user.to_param}, valid_session
+      get :edit, params: { id: user.to_param, user: :valid_session }
       expect(assigns(:user)).to eq(user)
     end
   end
@@ -75,34 +75,34 @@ RSpec.describe UsersController, type: :controller do
     context 'with valid params' do
       it 'creates a new User' do
         expect {
-          post :create, {user: valid_attributes}, valid_session
+          post :create, params: { user: valid_attributes }
         }.to change(User, :count).by(1)
       end
 
       it 'assigns a newly created user as @user' do
-        post :create, {user: valid_attributes}, valid_session
+        post :create, params: { user: valid_attributes }
         expect(assigns(:user)).to be_a(User)
         expect(assigns(:user)).to be_persisted
       end
 
       it 'redirects to the todo lists path' do
-        post :create, {user: valid_attributes}, valid_session
+        post :create, params: { user: valid_attributes }
         expect(response).to redirect_to(todo_lists_path)
       end
 
       it 'sets the flash success message' do
-        post :create, {user: valid_attributes}, valid_session
+        post :create, params: { user: valid_attributes }
         expect(flash[:success]).to eq('Thanks for signing up!')
       end
 
       it 'sets the session user_id to the created user' do
-        post :create, {user: valid_attributes}, valid_session
+        post :create, params: { user: valid_attributes }
         expect(session[:user_id]).to eq(User.find_by(email: valid_attributes[:email]).id)
       end
 
       it 'calls the create_defaults_lists method' do
         allow_any_instance_of(User).to receive(:create_default_lists)
-        post :create, {user: valid_attributes}, valid_session
+        post :create, params: {user: valid_attributes}
       end
     end
 
@@ -110,14 +110,14 @@ RSpec.describe UsersController, type: :controller do
       it 'assigns a newly created but unsaved user as @user' do
         # Trigger the behavior that occurs when invalid params are submitted
         allow_any_instance_of(User).to receive(:save).and_return(false)
-        post :create, {user: { first_name: 'invalid value' }}, valid_session
+        post :create, params: { user: { first_name: 'invalid value' } }
         expect(assigns(:user)).to be_a_new(User)
       end
 
       it "re-renders the 'new' template" do
         # Trigger the behavior that occurs when invalid params are submitted
         allow_any_instance_of(User).to receive(:save).and_return(false)
-        post :create, {user: { first_name: 'invalid value' }}, valid_session
+        post :create, params: { user: { first_name: 'invalid value' } }
         expect(response).to render_template('new')
       end
     end
@@ -131,19 +131,19 @@ RSpec.describe UsersController, type: :controller do
         # specifies that the User created on the previous line
         # receives the :update_attributes message with whatever params are
         # submitted in the request.
-        allow_any_instance_of(User).to receive(:update).with({ first_name: 'MyString' })
-        put :update, {id: user.to_param, user: { first_name: 'MyString' }}, valid_session
+        allow(User).to receive(:update).with({ first_name: 'MyString' })
+        put :update, params: { id: user.to_param, user: { first_name: 'MyString' } }
       end
 
       it 'assigns the requested user as @user' do
         user = User.create! valid_attributes
-        put :update, {id: user.to_param, user: valid_attributes}, valid_session
+        put :update, params: { id: user.to_param, user: valid_attributes }
         expect(assigns(:user)).to eq(user)
       end
 
       it 'redirects to the user' do
         user = User.create! valid_attributes
-        put :update, {id: user.to_param, user: valid_attributes}, valid_session
+        put :update, params: { id: user.to_param, user: valid_attributes }
         expect(response).to redirect_to(root_path)
       end
     end
@@ -153,7 +153,7 @@ RSpec.describe UsersController, type: :controller do
         user = User.create! valid_attributes
         # Trigger the behavior that occurs when invalid params are submitted
         allow_any_instance_of(User).to receive(:save).and_return(false)
-        put :update, {id: user.to_param, user: { first_name: 'invalid value' }}, valid_session
+        put :update, params: { id: user.to_param, user: { first_name: 'invalid value' } }
         expect(assigns(:user)).to eq(user)
       end
 
@@ -161,7 +161,7 @@ RSpec.describe UsersController, type: :controller do
         user = User.create! valid_attributes
         # Trigger the behavior that occurs when invalid params are submitted
         allow_any_instance_of(User).to receive(:save).and_return(false)
-        put :update, {id: user.to_param, user: { first_name: 'invalid value' }}, valid_session
+        put :update, params: { id: user.to_param, user: { first_name: 'invalid value' } }
         expect(assigns(:user)).to render_template('edit')
       end
     end
@@ -171,13 +171,13 @@ RSpec.describe UsersController, type: :controller do
     it 'destroys the requested user' do
       user = User.create! valid_attributes
       expect {
-        delete :destroy, {id: user.to_param}, valid_session
+        delete :destroy, params: { id: user.to_param }
       }.to change(User, :count).by(-1)
     end
 
     it 'redirects to the users list' do
       user = User.create! valid_attributes
-      delete :destroy, {id: user.to_param}, valid_session
+      delete :destroy, params: { id: user.to_param }
       expect(response).to redirect_to(root_path)
     end
   end
