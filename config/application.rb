@@ -23,5 +23,8 @@ module Odot
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
     config.action_view.field_error_proc = Proc.new {|html, instance| html}
+
+    # Halting Callback Chains via throw(:abort)
+    ActiveSupport.halt_callback_chains_on_return_false = false
   end
 end
