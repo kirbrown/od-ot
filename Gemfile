@@ -32,6 +32,8 @@ group :development do
   gem 'sqlite3'
   gem 'web-console'
   gem 'quiet_assets'
+  gem 'brakeman'
+  gem 'bundler-audit'
 end
 
 group :test do
