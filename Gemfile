@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 ruby '2.3.1'
 
-gem 'rails', '~> 4.2', '>= 4.2.7.1'
+gem 'rails', '~> 5.0', '>= 5.0.2'
 gem 'activerecord'
 
 gem 'sass-rails'
@@ -26,12 +26,14 @@ group :development, :test do
   gem 'factory_girl_rails'
   gem 'spring'
   gem 'spring-commands-rspec'
+  gem 'rails-controller-testing'
 end
 
 group :development do
   gem 'sqlite3'
   gem 'web-console'
-  gem 'quiet_assets'
+  gem 'brakeman'
+  gem 'bundler-audit'
 end
 
 group :test do
