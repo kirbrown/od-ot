@@ -1,9 +1,9 @@
-class User < ActiveRecord::Base
+class User < ApplicationRecord
 
   before_save :downcase_email
 
   has_secure_password
-  
+
   has_many :todo_lists, dependent: :destroy
 
   validates :first_name, :last_name, :email, presence: true
