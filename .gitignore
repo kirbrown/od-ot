@@ -17,6 +17,9 @@
 !/log/.keep
 /tmp
 
-# Ignore config/database.yml file
+# Ignore config/database.yml file & .env variables
 /config/database.yml
-/config/application.yml
+.env
+
+# Ignore docker-compose.override file
+docker-compose.override.yml
