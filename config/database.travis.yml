@@ -1,0 +1,19 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  host: pg
+  username: postgres
+  password:
+
+development:
+  <<: *default
+  database: od-ot_development
+
+test:
+  <<: *default
+  database: od-ot_test
+
+production:
+  <<: *default
+  database: od-ot_production
