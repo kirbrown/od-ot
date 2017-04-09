@@ -4,13 +4,12 @@ rvm:
   - 2.4.1
 
 script:
-  - RAILS_ENV=test bundle exec rake db:migrate --trace
-  - bundle exec rake db:test:prepare
   - bundle exec rake
 
 before_script:
   - cp config/database.travis.yml config/database.yml
-  - psql -c 'create database od-ot_test' -U postgres
+  - RAILS_ENV=test bundle exec rake db:create db:migrate
+  - bundle exec rake db:test:prepare
 
 cache: bundler
 
