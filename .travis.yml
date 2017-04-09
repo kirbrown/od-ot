@@ -1,8 +1,8 @@
 language: ruby
 rvm:
-  - 2.3.1
+  - 2.4.1
 before_install:
-  - export GEM_HOME=$PWD/vendor/bundle/ruby/2.3.1
+  - export GEM_HOME=$PWD/vendor/bundle/ruby/2.4.1
   - gem install bundler
 
 cache: bundler
