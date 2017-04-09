@@ -1,9 +1,13 @@
 language: ruby
+
 rvm:
   - 2.4.1
+
 before_install:
   - export GEM_HOME=$PWD/vendor/bundle/ruby/2.4.1
   - gem install bundler
+  - cp config/database.travis.yml config/database.yml
+  - psql -c 'create database od-ot_test' -U postgres
 
 cache: bundler
 
