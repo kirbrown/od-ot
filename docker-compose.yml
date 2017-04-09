@@ -1,0 +1,26 @@
+version: '2'
+
+services:
+  pg:
+    image: od-ot:pg
+    build:
+      context: .
+      dockerfile: docker/containers/pg/Dockerfile
+    environment:
+      POSTGRES_PASSWORD: password
+    ports:
+      - "5432:5432"
+
+  web:
+    image: od-ot:web
+    build:
+      context: .
+      dockerfile: ./docker/containers/ruby/Dockerfile
+    volumes:
+      - ./:/home/deploy/od-ot
+    command: bundle exec rails s -p 3000 -b '0.0.0.0'
+    ports:
+      - "3000:3000"
+    links:
+      - pg
+    tty: true

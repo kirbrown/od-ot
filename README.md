@@ -12,59 +12,46 @@ Simple to-do rails application using Test-Driven Development with RSpec and Capy
 
 ## Getting started
 
-1. Install ruby & choose the project's ruby version (you can simply use [RVM](https://rvm.io/) to do that):
+1. Create local `config/database.yml`(it stores the db configs) & edit it;
 
   ```bash
-    rvm install ruby-2.3.1
-  ```
-  ```bash
-    use ruby-2.3.1
-  ```
-  
-2. Create gemset & switch to it (if you use [RVM](https://rvm.io/)):
-  
-  ```bash
-    rvm gemset od-ot
-  ```
-  ```bash
-    rvm use od-ot
-  ```
-  
-3. Install [Bundler](http://bundler.io/):
-
-  ```bash
-    gem install bundler
-  ```
-  
-4. Install gems:
-
-  ```bash
-    bundle install
+    cp config/database.yml.example config/database.yml
   ```
 
-5. Create local `config/database.yml`(it stores the db configs);
-  
+2. Create `docker-compose.override.yml` file & store your local `docker-compose` preferences;
+
+3. Create local `.env` file to store all env. variables:
+
   ```bash
-    cp config/database.yml.sample config/database.yml
+    cp .env.example .env
   ```
 
-6. Create new db and run migrations:
+4. Install [docker](https://docs.docker.com/engine/installation/) & [docker-compose](https://docs.docker.com/compose/install/) if you haven't got them yet and then run:
+
+  ```bash
+    docker-compose build
+  ```
+
+5. Create new db and run migrations inside docker's `web` container:
 
   ``` bash
-    rake db:create && rake db:migrate
+    docker-compose run web rails db:create && docker-compose run web rails db:migrate
   ```
 
-7. Also prepare the test db:
+6. Also prepare the test db:
 
   ```bash
-    rake db:test:prepare
+    docker-compose run web rails db:test:prepare
   ```
 
-8. Great! You're ready to run the app. Start rails server:
+7. Run the project:
 
   ```bash
-    rails s
+    docker-compose up
+    docker-compose up -d # Without logs
   ```
+
+Great, now Od-ot app should be running on `localhost:3000`.
 
 ## Contributing
 
