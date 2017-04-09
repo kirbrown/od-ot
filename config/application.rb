@@ -1,6 +1,16 @@
 require File.expand_path('../boot', __FILE__)
 
-require 'rails/all'
+require "rails"
+# Pick the frameworks you want:
+require "active_model/railtie"
+require "active_job/railtie"
+require "active_record/railtie"
+require "action_controller/railtie"
+require "action_mailer/railtie"
+require "action_view/railtie"
+require "action_cable/engine"
+require "sprockets/railtie"
+require './lib/foundation_form_builder'
 
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
@@ -21,7 +31,6 @@ module Odot
     config.i18n.default_locale = :en
 
     # Do not swallow errors in after_commit/after_rollback callbacks.
-    config.active_record.raise_in_transactional_callbacks = true
     config.action_view.field_error_proc = Proc.new {|html, instance| html}
 
     # Halting Callback Chains via throw(:abort)
