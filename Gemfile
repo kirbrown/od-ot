@@ -1,9 +1,7 @@
+ruby '2.4.1'
 source 'https://rubygems.org'
 
-ruby '2.3.1'
-
 gem 'rails', '~> 5.0', '>= 5.0.2'
-gem 'activerecord'
 
 gem 'sass-rails'
 gem 'uglifier'
@@ -18,15 +16,17 @@ gem 'font-awesome-rails'
 
 gem 'figaro'
 
-gem 'sdoc', group: :doc
-
 group :development, :test do
-  gem 'byebug'
+  gem 'byebug', platform: :mri
+  gem 'rubocop'
+  gem 'rubocop-rspec'
   gem 'rspec-rails'
   gem 'factory_girl_rails'
   gem 'spring'
   gem 'spring-commands-rspec'
   gem 'rails-controller-testing'
+  gem 'pry-byebug'
+  gem 'pry-rails'
 end
 
 group :development do
