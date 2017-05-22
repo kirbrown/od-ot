@@ -18,7 +18,7 @@ Simple to-do rails application using Test-Driven Development with RSpec and Capy
     cp config/database.yml.example config/database.yml
   ```
 
-2. Create `docker-compose.override.yml` file & store your local `docker-compose` preferences;
+2. Create `docker-compose.override.yml` file & copy code from `docker-compose.development.yml`;
 
 3. Create local `.env` file to store all env. variables:
 
@@ -38,13 +38,7 @@ Simple to-do rails application using Test-Driven Development with RSpec and Capy
     docker-compose run web rails db:create && docker-compose run web rails db:migrate
   ```
 
-6. Also prepare the test db:
-
-  ```bash
-    docker-compose run web rails db:test:prepare
-  ```
-
-7. Run the project:
+6. Run the project:
 
   ```bash
     docker-compose up
