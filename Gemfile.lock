@@ -101,7 +101,7 @@ GEM
       thor (>= 0.14, < 2.0)
     loofah (2.0.3)
       nokogiri (>= 1.5.9)
-    mail (2.6.5)
+    mail (2.6.6.rc1)
       mime-types (>= 1.16, < 4)
     method_source (0.8.2)
     mime-types (3.1)
@@ -253,6 +253,7 @@ DEPENDENCIES
   foundation-rails
   jbuilder
   jquery-rails
+  mail (~> 2.6.6.rc1)
   pg
   pry-byebug
   pry-rails
