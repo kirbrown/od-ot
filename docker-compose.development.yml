@@ -1,0 +1,7 @@
+version: '2'
+
+services:
+  postgres:
+    volumes:
+      # Postgres folder for data
+      - $PWD/docker/containers/postgres/data/var/lib/postgresql/data:/var/lib/postgresql/data
