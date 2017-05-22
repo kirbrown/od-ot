@@ -15,6 +15,7 @@ gem 'foundation-rails'
 gem 'font-awesome-rails'
 
 gem 'figaro'
+gem 'mail', '~> 2.6.6.rc1'
 
 group :development, :test do
   gem 'byebug', platform: :mri
