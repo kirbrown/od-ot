@@ -1,5 +1,4 @@
 module ApplicationHelper
-
   def title(title)
     content_for(:title) { "#{title} | " }
     content_tag(:h2, title, class: 'page-title truncate', title: title)
@@ -19,5 +18,4 @@ module ApplicationHelper
       html.html_safe
     end
   end
-
 end

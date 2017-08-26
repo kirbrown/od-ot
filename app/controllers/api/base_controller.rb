@@ -3,10 +3,6 @@ class Api::BaseController < ApplicationController
   protect_from_forgery with: :null_session, prepend: true
   before_action :authenticate
 
-  def current_user
-    @current_user
-  end
-
   def authenticate
     authenticate_or_request_with_http_basic do |email, password|
       Rails.logger.info "API authentication: #{email}, #{password}."
@@ -21,4 +17,8 @@ class Api::BaseController < ApplicationController
       end
     end
   end
+
+  private
+
+  attr_reader :current_user
 end

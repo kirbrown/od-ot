@@ -1,6 +1,5 @@
 class PasswordResetsController < ApplicationController
-
-  before_action :set_user, only: [:edit, :update]
+  before_action :set_user, only: %i[edit update]
 
   def new; end
 
@@ -44,5 +43,4 @@ class PasswordResetsController < ApplicationController
   def user_params
     params.require(:user).permit(:password, :password_confirmation)
   end
-
 end

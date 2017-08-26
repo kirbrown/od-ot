@@ -19,7 +19,6 @@ require 'rails_helper'
 # that an instance is receiving a specific message.
 
 RSpec.describe UsersController, type: :controller do
-
   # This should return the minimal set of attributes required to create a valid
   # User. As you add validations to User, be sure to
   # adjust the attributes here as well.
@@ -40,20 +39,20 @@ RSpec.describe UsersController, type: :controller do
       email: '',
       password: '',
       password_confirmation: ''
-    } 
+    }
   }
 
   # This should return the minimal set of values that should be in the session
   # in order to pass any filters (e.g. authentication) defined in
   # UsersController. Be sure to keep this updated too.
-  let(:valid_session) { 
+  let(:valid_session) {
     {
       first_name: 'John',
       last_name: 'Doe',
       email: 'john@doe.com',
       password: 'password1234',
       password_confirmation: 'password1234'
-    } 
+    }
   }
 
   describe 'GET #new' do
@@ -102,7 +101,7 @@ RSpec.describe UsersController, type: :controller do
 
       it 'calls the create_defaults_lists method' do
         allow_any_instance_of(User).to receive(:create_default_lists)
-        post :create, params: {user: valid_attributes}
+        post :create, params: { user: valid_attributes }
       end
     end
 
@@ -131,7 +130,7 @@ RSpec.describe UsersController, type: :controller do
         # specifies that the User created on the previous line
         # receives the :update_attributes message with whatever params are
         # submitted in the request.
-        allow(User).to receive(:update).with({ first_name: 'MyString' })
+        allow(User).to receive(:update).with(first_name: 'MyString')
         put :update, params: { id: user.to_param, user: { first_name: 'MyString' } }
       end
 
@@ -181,5 +180,4 @@ RSpec.describe UsersController, type: :controller do
       expect(response).to redirect_to(root_path)
     end
   end
-
 end

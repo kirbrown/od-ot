@@ -1,5 +1,4 @@
 class User < ApplicationRecord
-
   before_save :downcase_email
 
   has_secure_password
@@ -22,7 +21,8 @@ class User < ApplicationRecord
 
   def create_default_lists
     tutorial = todo_lists.find_or_create_by(title: 'Od-ot Tutorial')
-    tutorial.todo_items.find_or_create_by(content: 'Add a todo list or item by clicking or tapping the \'+\' button at the right top.')
+    tutorial.todo_items.find_or_create_by(content:
+      'Add a todo list or item by clicking or tapping the \'+\' button at the right top.')
     tutorial.todo_items.find_or_create_by(content: 'The numbers next to a list indicate how many items it has.')
     tutorial.todo_items.find_or_create_by(content: 'Clicking or tapping the list title brings up list items.')
     tutorial.todo_items.find_or_create_by(content: 'Clicking or tapping the list title again gives you more options.')
@@ -30,5 +30,4 @@ class User < ApplicationRecord
     tutorial.todo_items.find_or_create_by(content: 'Clicking or tapping it again marks it incomplete.')
     tutorial.todo_items.find_or_create_by(content: 'Clicking or tapping the item lets you edit or delete it.')
   end
-
 end
