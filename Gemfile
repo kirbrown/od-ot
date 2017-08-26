@@ -1,7 +1,7 @@
 ruby '2.4.1'
 source 'https://rubygems.org'
 
-gem 'rails', '~> 5.0', '>= 5.0.3'
+gem 'rails', '~> 5.1', '>= 5.1.3'
 
 gem 'sass-rails'
 gem 'uglifier'
@@ -15,7 +15,7 @@ gem 'foundation-rails'
 gem 'font-awesome-rails'
 
 gem 'figaro'
-gem 'mail', '~> 2.6.6.rc1'
+gem 'mail'
 
 group :development, :test do
   gem 'byebug', platform: :mri
