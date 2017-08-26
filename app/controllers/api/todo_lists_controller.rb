@@ -1,6 +1,5 @@
 class Api::TodoListsController < Api::BaseController
-
-  before_action :find_todo_list, only: [:show, :update, :destroy]
+  before_action :find_todo_list, only: %i[show update destroy]
 
   def index
     Rails.logger.info "Current user: #{current_user.inspect}"
@@ -8,7 +7,7 @@ class Api::TodoListsController < Api::BaseController
   end
 
   def show
-    render json: @list.as_json(include:[:todo_items])
+    render json: @list.as_json(include: [:todo_items])
   end
 
   def create
@@ -29,13 +28,13 @@ class Api::TodoListsController < Api::BaseController
   def update
     if @list.update(list_params)
       render status: 200, json: {
-          message: 'Successfully updated.',
-          todo_list: @list
+        message: 'Successfully updated.',
+        todo_list: @list
       }.to_json
     else
       render status: 422, json: {
-          message: 'The To-do list could not be updated.',
-          todo_list: @list
+        message: 'The To-do list could not be updated.',
+        todo_list: @list
       }.to_json
     end
   end
@@ -56,5 +55,4 @@ class Api::TodoListsController < Api::BaseController
   def find_todo_list
     @list = current_user.todo_lists.find(params[:id])
   end
-
 end

@@ -5,19 +5,20 @@
   </div>
 </div>
 
-<%= render partial: 'functions' %>
+<%= render 'functions', todo_list: @todo_list %>
 
 <% if @todo_list.todo_items.present? %>
 
   <ul class='list todo-items no-bullet'>
-    <%= render partial: 'todo_item', collection: @todo_list.todo_items %>
+    <%= render partial: 'todo_item', collection: @todo_list.todo_items, as: :todo_item,
+                                     locals: { todo_list: @todo_list } %>
   </ul>
 
 <% else %>
 
-  <%= render partial: 'blank_slate' %>
+  <%= render 'blank_slate', todo_list: @todo_list %>
 
 <% end %>
 
 <!-- Email modal -->
-<%= render partial: 'email_modal' %>
+<%= render 'email_modal', todo_list: @todo_list %>

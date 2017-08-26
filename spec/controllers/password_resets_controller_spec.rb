@@ -18,11 +18,14 @@ RSpec.describe PasswordResetsController, type: :controller do
       end
 
       it 'generates a new password token' do
-        expect{ post :create, params: { email: user.email }; user.reload }.to change{ user.password_reset_token }
+        expect do
+          post :create, params: { email: user.email }
+          user.reload
+        end.to change { user.password_reset_token }
       end
 
       it 'sends a password reset email' do
-        expect{ post :create, params: { email: user.email } }.to change(ActionMailer::Base.deliveries, :size)
+        expect { post :create, params: { email: user.email } }.to change(ActionMailer::Base.deliveries, :size)
       end
 
       it 'sets the flash[:success] message' do

@@ -4,20 +4,17 @@
 
   <fieldset class='fieldset'>
     <legend>About You</legend>
-    
+
     <%= f.text_field :first_name, autofocus: 'autofocus' %>
-
     <%= f.text_field :last_name %>
-
     <%= f.text_field :email %>
 
   </fieldset>
-  
+
   <fieldset class='fieldset'>
     <legend>Change Your Password</legend>
 
     <%= f.password_field :password %>
-
     <%= f.password_field :password_confirmation %>
 
   </fieldset>
@@ -28,7 +25,10 @@
     <legend>Unhappy?</legend>
 
     <div class='text-center'>
-      <%= link_to 'Delete account', user_path(@user), class: 'alert button large', method: :delete, data: { confirm: 'Are you sure you want to delete you profile with all lists and its items? This is no undo!' } %>
+      <%= link_to 'Delete account', user_path(@user),
+          class: 'alert button large',
+          method: :delete,
+          data: { confirm: 'Are you sure you want to delete you profile with all lists and its items? This is no undo!' } %>
     </div>
   </fieldset>
 

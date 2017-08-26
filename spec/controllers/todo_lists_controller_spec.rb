@@ -19,7 +19,6 @@ require 'rails_helper'
 # that an instance is receiving a specific message.
 
 RSpec.describe TodoListsController, type: :controller do
-
   # This should return the minimal set of attributes required to create a valid
   # TodoList. As you add validations to TodoList, be sure to
   # adjust the attributes here as well.
@@ -85,7 +84,7 @@ RSpec.describe TodoListsController, type: :controller do
     context 'with valid params' do
       it 'creates a new TodoList' do
         expect {
-          post :create, params: { todo_list: valid_attributes, user: valid_session}
+          post :create, params: { todo_list: valid_attributes, user: valid_session }
         }.to change(TodoList, :count).by(1)
       end
 
@@ -152,7 +151,7 @@ RSpec.describe TodoListsController, type: :controller do
         # specifies that the TodoList created on the previous line
         # receives the :update_attributes message with whatever params are
         # submitted in the request.
-        allow(TodoList).to receive(:update).with({ title: 'MyString' })
+        allow(TodoList).to receive(:update).with(title: 'MyString')
         put :update, params: { id: todo_list.to_param, todo_list: { title: 'MyString' } }
       end
 
