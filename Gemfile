@@ -19,6 +19,7 @@ gem 'mail'
 
 group :development, :test do
   gem 'byebug', platform: :mri
+  gem 'rails_best_practices'
   gem 'rubocop'
   gem 'rubocop-rspec'
   gem 'rspec-rails'
