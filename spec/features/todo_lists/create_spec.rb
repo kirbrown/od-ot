@@ -4,7 +4,7 @@ describe 'Creating todo lists' do
   let(:user) { create(:user) }
   before { sign_in user, password: 'password1234' }
 
-  def create_todo_list(options={})
+  def create_todo_list(options = {})
     options[:title] ||= 'My todo list'
 
     visit '/todo_lists'

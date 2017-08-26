@@ -2,9 +2,7 @@ require 'rails_helper'
 
 RSpec.describe 'todo_lists/edit', type: :view do
   before(:each) do
-    @todo_list = assign(:todo_list, TodoList.create!(
-      title: 'MyString'
-    ))
+    @todo_list = assign(:todo_list, TodoList.create!(title: 'MyString'))
   end
 
   it 'renders the edit todo_list form' do

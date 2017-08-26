@@ -1,5 +1,4 @@
 class UserSessionsController < ApplicationController
-
   def new; end
 
   def create
@@ -24,5 +23,4 @@ class UserSessionsController < ApplicationController
     reset_session
     redirect_to root_path, success: 'You have been signed out.'
   end
-
 end

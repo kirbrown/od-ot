@@ -5,7 +5,7 @@ describe 'Editing todo lists' do
   let!(:todo_list) { create(:todo_list) }
   before { sign_in todo_list.user, password: 'password1234' }
 
-  def update_todo_list(options={})
+  def update_todo_list(options = {})
     options[:title] ||= 'My todo list'
 
     todo_list = options[:todo_list]

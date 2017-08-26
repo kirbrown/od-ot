@@ -1,7 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe UserSessionsController, type: :controller do
-
   describe 'GET #new' do
     it 'returns http success' do
       get :new
@@ -16,7 +15,7 @@ RSpec.describe UserSessionsController, type: :controller do
 
   describe 'POST #create' do
     context 'with correct credentials' do
-      let!(:user) { 
+      let!(:user) {
         User.create(
           first_name: 'John',
           last_name: 'Doe',
@@ -33,7 +32,7 @@ RSpec.describe UserSessionsController, type: :controller do
       end
 
       it 'finds the user' do
-        expect(User).to receive(:find_by).with({email: 'john@doe.com'}).and_return(user)
+        expect(User).to receive(:find_by).with(email: 'john@doe.com').and_return(user)
         post :create, params: { email: 'john@doe.com', password: 'password1234' }
       end
 
@@ -80,7 +79,7 @@ RSpec.describe UserSessionsController, type: :controller do
     end
 
     context 'with an incorrect password' do
-      let!(:user) { 
+      let!(:user) {
         User.create(
           first_name: 'John',
           last_name: 'Doe',
