@@ -9,7 +9,7 @@ describe 'Forgotten Passwords' do
     fill_in 'Email', with: user.email
     expect {
       click_button 'Send Instructions'
-    }.to change{ ActionMailer::Base.deliveries.size }.by(1)
+    }.to change { ActionMailer::Base.deliveries.size }.by(1)
   end
 
   it 'resets a password when following the email link' do
