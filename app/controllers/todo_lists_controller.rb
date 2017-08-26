@@ -1,12 +1,13 @@
 class TodoListsController < ApplicationController
-
   before_action :require_user
-  before_action :set_todo_list, only: [:edit, :update, :destroy, :email]
-  before_action :set_back_link, except: [:index]
+  before_action :set_todo_list, only: %i[edit update destroy email]
+  before_action :set_back_link, except: %i[index show]
 
   def index
     @todo_lists = current_user.todo_lists
   end
+
+  def show; end
 
   def new
     @todo_list = current_user.todo_lists.new
@@ -60,5 +61,4 @@ class TodoListsController < ApplicationController
   def todo_list_params
     params.require(:todo_list).permit(:title)
   end
-
 end

@@ -1,9 +1,8 @@
 class TodoItemsController < ApplicationController
-
   before_action :require_user
   before_action :find_todo_list
-  before_action :find_todo_item, only: [:edit, :update, :destroy, :complete]
-  before_action :set_back_link, except: [:index]
+  before_action :find_todo_item, only: %i[edit update destroy complete]
+  before_action :set_back_link, except: %i[index]
 
   def index
     go_back_link_to todo_lists_path
@@ -48,10 +47,6 @@ class TodoItemsController < ApplicationController
     redirect_to todo_list_todo_items_path, success: 'Todo item status updated.'
   end
 
-  def url_options
-    { todo_list_id: params[:todo_list_id] }.merge(super)
-  end
-
   private
 
   def set_back_link
@@ -69,5 +64,4 @@ class TodoItemsController < ApplicationController
   def todo_item_params
     params[:todo_item].permit(:content)
   end
-
 end

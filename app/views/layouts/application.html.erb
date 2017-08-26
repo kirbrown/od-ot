@@ -12,14 +12,14 @@
   </head>
   <body>
 
-    <%= render partial: 'layouts/flash' %>
+    <%= render 'layouts/flash' %>
 
     <header class='row global-header'>
       <div class='small-12 small-centered medium-8 medium-centered large-5 large-centered columns'>
         <% if logged_in? %>
-          <%= render partial: 'layouts/header_logged_in' %>
+          <%= render 'layouts/header_logged_in', go_back_link_to: @go_back_link_to %>
         <% else %>
-          <%= render partial: 'layouts/header_logged_out' %>
+          <%= render 'layouts/header_logged_out' %>
         <% end %>
       </div>
     </header>
@@ -30,7 +30,7 @@
       </div>
     </div>
 
-    <%= render partial: 'layouts/footer' %>
+    <%= render 'layouts/footer' %>
 
   </body>
 </html>
