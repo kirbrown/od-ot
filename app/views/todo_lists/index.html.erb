@@ -3,11 +3,11 @@
 <% if @todo_lists.present? %>
 
   <ul class='list todo-lists no-bullet'>
-    <%= render partial: 'todo_list', collection: @todo_lists %>
+    <%= render partial: 'todo_list', collection: @todo_lists, as: :todo_list %>
   </ul>
 
 <% else %>
 
-  <%= render partial: 'blank_slate' %>
+  <%= render 'blank_slate' %>
 
 <% end %>
