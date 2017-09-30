@@ -55,7 +55,7 @@ Simple to-do rails application using Test-Driven Development with RSpec and Capy
   docker-compose run web rails db:create && docker-compose run web rails db:migrate
   ```
 
-Great, now Od-ot app should be running on `localhost:3000`.
+Great, now you can find the `Od-ot` app on `localhost:3000`.
 
 ## Contributing
 
