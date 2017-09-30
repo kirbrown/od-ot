@@ -10,6 +10,7 @@ gem 'jbuilder'
 
 gem 'bcrypt'
 
+gem "autoprefixer-rails"
 gem 'foundation-rails'
 gem 'font-awesome-rails'
 
