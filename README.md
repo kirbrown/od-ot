@@ -12,37 +12,47 @@ Simple to-do rails application using Test-Driven Development with RSpec and Capy
 
 ## Getting started
 
-1. Create local `config/database.yml`(it stores the db configs) & edit it;
+1. Create `config/database.yml`(it stores the db configs) file:
 
   ```bash
-    cp config/database.yml.example config/database.yml
+  cp config/database.yml.example config/database.yml
   ```
 
-2. Create `docker-compose.override.yml` file & copy code from `docker-compose.development.yml`;
-
-3. Create local `.env` file to store all env. variables:
+2. Create `docker-compose.override.yml` file with docker preferences for development environment:
 
   ```bash
-    cp .env.example .env
+  cp docker-compose.override.yml docker-compose.development.yml
   ```
 
-4. Install [docker](https://docs.docker.com/engine/installation/) & [docker-compose](https://docs.docker.com/compose/install/) if you haven't got them yet and then run:
+3. Create `.env` file to store all env. variables:
 
   ```bash
-    docker-compose build
+  cp .env.example .env
   ```
 
-5. Create new db and run migrations inside docker's `web` container:
+4. Create external volume for gems by running:
 
-  ``` bash
-    docker-compose run web rails db:create && docker-compose run web rails db:migrate
+  ```bash
+  docker volume create --name=od-ot_gems
+  ```
+
+5. Install [docker](https://docs.docker.com/engine/installation/) & [docker-compose](https://docs.docker.com/compose/install/) if you haven't got them yet and then run:
+
+  ```bash
+  docker-compose build
   ```
 
 6. Run the project:
 
   ```bash
-    docker-compose up
-    docker-compose up -d # Without logs
+  docker-compose up
+  docker-compose up -d # Without logs
+  ```
+
+7. Create development & test PostgreSQL db's & run migrations inside docker's `web` container:
+
+  ```bash
+  docker-compose run web rails db:create && docker-compose run web rails db:migrate
   ```
 
 Great, now Od-ot app should be running on `localhost:3000`.
