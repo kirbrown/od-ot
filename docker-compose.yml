@@ -2,7 +2,6 @@ version: '3'
 
 services:
   postgres:
-    image: od-ot:postgres
     build:
       context: .
       dockerfile: docker/containers/postgres/Dockerfile
@@ -10,7 +9,6 @@ services:
       - ./:/home/root/project
 
   web:
-    image: od-ot:web
     build:
       context: .
       dockerfile: ./docker/containers/web/Dockerfile
