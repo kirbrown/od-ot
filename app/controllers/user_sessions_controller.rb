@@ -3,7 +3,7 @@ class UserSessionsController < ApplicationController
 
   def create
     user = User.find_by(email: params[:email])
-    if user && user.authenticate(params[:password])
+    if user&.authenticate(params[:password])
       if params[:remember_me]
         signed_token = Rails.application.message_verifier(:remember_me).generate(user.id)
         cookies.permanent.signed[:remember_me_token] = signed_token

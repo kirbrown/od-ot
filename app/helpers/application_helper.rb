@@ -4,6 +4,7 @@ module ApplicationHelper
     content_tag(:h2, title, class: 'page-title truncate', title: title)
   end
 
+  # rubocop:disable Style/SafeNavigation
   def new_item_link
     if @todo_list && !@todo_list.new_record?
       text, path = 'Todo Item', new_todo_list_todo_item_path(@todo_list)
@@ -18,4 +19,5 @@ module ApplicationHelper
       html.html_safe
     end
   end
+  # rubocop:enable Style/SafeNavigation
 end
