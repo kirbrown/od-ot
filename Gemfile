@@ -10,11 +10,14 @@ gem 'jbuilder'
 
 gem 'bcrypt'
 
+gem "autoprefixer-rails"
 gem 'foundation-rails'
 gem 'font-awesome-rails'
 
 gem 'figaro'
 gem 'mail'
+
+gem 'pundit'
 
 group :development, :test do
   gem 'byebug', platform: :mri

@@ -12,10 +12,12 @@
 
 @media only screen and (min-width: 40em) {
   .hero {
+    height: 350px;
+
+    text-align: left;
+
     background: asset_url('home-iphone.png') no-repeat 90% center;
     background-size: 350px;
-    height: 350px;
-    text-align: left;
   }
 }
 
