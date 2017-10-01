@@ -5,33 +5,41 @@
 }
 
 .logo {
-  margin: 0.4em 0;
   font-size: 2.5rem;
 
+  margin: 0.4em 0;
+
   a {
+    display: block;
+
+    height: 34px;
+
     background: transparent url(asset_path(#{"logo-odot.svg"})) no-repeat center center;
     background-size: contain;
-    display: block;
-    height: 34px;
   }
 }
 
 .page-title {
-  background: $main;
-  color: $white;
-  text-align: center;
-  padding: 0.5em;
-  font-size: 1.5rem;
-  cursor: default;
+    font-size: 1.5rem;
+
+    padding: .5em;
+
+    cursor: default;
+    text-align: center;
+
+    color: $white;
+    background: $main;
 }
 
 .nav {
-  border-bottom: 1px solid #aaa;
   margin-bottom: 20px;
   padding: 10px 0 0 5px;
 
+  border-bottom: 1px solid $grey;
+
   h1 {
     float: left;
+
     margin-right: 1em;
   }
 
@@ -41,24 +49,28 @@
 
   ul {
     float: left;
-    list-style: none;
     clear: right;
+
     margin-left: 1em;
     padding: 0;
+
+    list-style: none;
 
     li {
       float: left;
 
       a {
         display: block;
+
         width: auto;
         padding: 8px 10px;
-        background: #eee;
-        color: #aaa;
+
+        color: $grey;
+        background: $white;
 
         &:hover {
-          background: #aaa;
-          color: #eee;
+          color: $white;
+          background: $grey;
         }
       }
     }

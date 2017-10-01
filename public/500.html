@@ -7,48 +7,59 @@
     <style>
 
       body {
-        background: #ecf0f1;
+        font-family: Lato, 'Helvetica Neue', Helvetica, Arial, sans-serif;
         font-size: 1.25rem;
         font-weight: normal;
-        font-family: Lato, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+
+        background: #ecf0f1;
       }
 
       .wrapper {
+        max-width: 960px;
         margin: 0 auto;
         padding-top: 10%;
-        max-width: 960px;
+
         text-align: center;
       }
 
       h2 {
         font-size: 2rem;
+
         color: #44486d;
       }
 
       p {
-        color: #73a0ff;
-        display: block;
-        padding: 0;
-        font-weight: bold;
         font-size: 1.5rem;
+        font-weight: bold;
         line-height: 1.6;
+
+        display: block;
+
+        padding: 0;
+
+        color: #73a0ff;
       }
 
       .button {
-        text-decoration: none;
-        display: inline-block;
-        text-align: center;
         line-height: 1;
+
+        display: inline-block;
+
+        margin: 0 0 1rem 0;
+        padding: .85em 1em;
+
         cursor: pointer;
-        -webkit-appearance: none;
-        transition: background-color 0.25s ease-out, color 0.25s ease-out;
+        transition: background-color .25s ease-out, color .25s ease-out;
+        text-align: center;
         vertical-align: middle;
+        text-decoration: none;
+
+        color: #fff;
         border: 1px solid transparent;
         border-radius: 0;
-        padding: 0.85em 1em;
-        margin: 0 0 1rem 0;
         background-color: #44486d;
-        color: #fff;
+
+        -webkit-appearance: none;
       }
 
       .button:hover {

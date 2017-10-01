@@ -1,23 +1,26 @@
 /* Helper classes */
 
 .hide-text {
-  text-indent: 100%;
-  white-space: nowrap;
   overflow: hidden;
+
+  white-space: nowrap;
+  text-indent: 100%;
 }
 
 .truncate {
-  white-space: nowrap;
   overflow: hidden;
+
+  white-space: nowrap;
   text-overflow: ellipsis;
 }
 
 .help-text {
   display: block;
+
   text-align: center;
 }
 
-.help-text, 
+.help-text,
 .error label,
 .error input {
   color: $red;
@@ -33,8 +36,9 @@
 
 .centered {
   display: block;
-  margin-left: auto;
+
   margin-right: auto;
+  margin-left: auto;
 }
 
 .row .row {

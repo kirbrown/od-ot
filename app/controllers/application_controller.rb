@@ -3,10 +3,16 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception, prepend: true
 
+  include Pundit
+
   rescue_from ActiveRecord::RecordNotFound, with: :render_404
   rescue_from ActiveSupport::MessageVerifier::InvalidSignature, with: :render_error
+  rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
 
   add_flash_types :success, :error
+
+  helper_method :logged_in?
+  helper_method :current_user
 
   private
 
@@ -32,11 +38,6 @@ class ApplicationController < ActionController::Base
     render file: 'public/500.html', status: :internal_server_error, layout: false
   end
 
-  def logged_in?
-    current_user
-  end
-  helper_method :logged_in?
-
   def current_user
     if session[:user_id]
       @current_user ||= User.find(session[:user_id])
@@ -50,7 +51,6 @@ class ApplicationController < ActionController::Base
       end
     end
   end
-  helper_method :current_user
 
   def require_user
     if current_user
@@ -58,5 +58,14 @@ class ApplicationController < ActionController::Base
     else
       redirect_to sign_in_path, notice: 'You must be logged in to access that page.'
     end
+  end
+
+  def logged_in?
+    current_user
+  end
+
+  def user_not_authorized
+    redirect_back(fallback_location: (request.referer || root_path),
+                  error: 'You are not authorized to perform this action.')
   end
 end
