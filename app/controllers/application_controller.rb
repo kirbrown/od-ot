@@ -8,6 +8,9 @@ class ApplicationController < ActionController::Base
 
   add_flash_types :success, :error
 
+  helper_method :logged_in?
+  helper_method :current_user
+
   private
 
   def go_back_link_to(path)
@@ -32,11 +35,6 @@ class ApplicationController < ActionController::Base
     render file: 'public/500.html', status: :internal_server_error, layout: false
   end
 
-  def logged_in?
-    current_user
-  end
-  helper_method :logged_in?
-
   def current_user
     if session[:user_id]
       @current_user ||= User.find(session[:user_id])
@@ -50,13 +48,25 @@ class ApplicationController < ActionController::Base
       end
     end
   end
-  helper_method :current_user
 
   def require_user
     if current_user
       true
     else
       redirect_to sign_in_path, notice: 'You must be logged in to access that page.'
+    end
+  end
+
+  def logged_in?
+    current_user
+  end
+
+  def authorize!(user)
+    if current_user != user
+      redirect_back(fallback_location: (request.referer || root_path),
+                    error: 'You are not authorized to perform this action.')
+    else
+      true
     end
   end
 end
