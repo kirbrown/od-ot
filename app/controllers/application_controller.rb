@@ -3,8 +3,11 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception, prepend: true
 
+  include Pundit
+
   rescue_from ActiveRecord::RecordNotFound, with: :render_404
   rescue_from ActiveSupport::MessageVerifier::InvalidSignature, with: :render_error
+  rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
 
   add_flash_types :success, :error
 
@@ -61,12 +64,8 @@ class ApplicationController < ActionController::Base
     current_user
   end
 
-  def authorize!(user)
-    if current_user != user
-      redirect_back(fallback_location: (request.referer || root_path),
-                    error: 'You are not authorized to perform this action.')
-    else
-      true
-    end
+  def user_not_authorized
+    redirect_back(fallback_location: (request.referer || root_path),
+                  error: 'You are not authorized to perform this action.')
   end
 end

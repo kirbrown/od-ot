@@ -8,7 +8,7 @@ class UsersController < ApplicationController
   end
 
   def edit
-    authorize!(@user)
+    authorize @user, :owner?
   end
 
   def create
@@ -24,7 +24,7 @@ class UsersController < ApplicationController
   end
 
   def update
-    authorize!(@user)
+    authorize @user, :owner?
     if @user.update(user_params)
       redirect_to root_path, success: 'User was successfully updated.'
     else
@@ -33,7 +33,7 @@ class UsersController < ApplicationController
   end
 
   def destroy
-    authorize!(@user)
+    authorize @user, :owner?
     logging_out
     @user.destroy
     redirect_to root_path, success: 'User was successfully deleted.'
