@@ -17,6 +17,8 @@ gem 'font-awesome-rails'
 gem 'figaro'
 gem 'mail'
 
+gem 'pundit'
+
 group :development, :test do
   gem 'byebug', platform: :mri
   gem 'rails_best_practices'
