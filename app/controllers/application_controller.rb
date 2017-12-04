@@ -42,14 +42,19 @@ class ApplicationController < ActionController::Base
     if session[:user_id]
       @current_user ||= User.find(session[:user_id])
     elsif cookies.permanent.signed[:remember_me_token]
-      verification = Rails.application
-                          .message_verifier(:remember_me)
-                          .verify(cookies.permanent.signed[:remember_me_token])
-      if verification
-        Rails.logger.info 'Logging in by cookie.'
-        @current_user ||= User.find(verification)
-      end
+      verification
     end
+  end
+
+  def verification
+    verification = Rails.application
+                        .message_verifier(:remember_me)
+                        .verify(cookies.permanent.signed[:remember_me_token])
+
+    return unless verification
+
+    Rails.logger.info 'Logging in by cookie.'
+    @current_user ||= User.find(verification)
   end
 
   def require_user
