@@ -30,29 +30,35 @@ Simple to-do rails application using Test-Driven Development with RSpec and Capy
   cp .env.example .env
   ```
 
-4. Create external volume for gems by running:
+4. Install [docker](https://docs.docker.com/engine/installation/) & [docker-compose](https://docs.docker.com/compose/install/) if you haven't got them yet and then create external volume for gems by running:
 
   ```bash
   docker volume create --name=od-ot_gems
   ```
 
-5. Install [docker](https://docs.docker.com/engine/installation/) & [docker-compose](https://docs.docker.com/compose/install/) if you haven't got them yet and then run:
+5. Build the project:
 
   ```bash
   docker-compose build
   ```
 
-6. Run the project:
+6. install gems by running:
 
   ```bash
-  docker-compose up
-  docker-compose up -d # Without logs
+  docker-compose run web bundle install
   ```
 
 7. Create development & test PostgreSQL db's & run migrations inside docker's `web` container:
 
   ```bash
   docker-compose run web rails db:create && docker-compose run web rails db:migrate
+  ```
+
+8. Run the project:
+
+  ```bash
+  docker-compose up
+  docker-compose up -d # Without logs
   ```
 
 Great, now you can find the `Od-ot` app on `localhost:3000`.
