@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 
 gem 'rails', '~> 5.1', '>= 5.1.4'
 
+gem 'pg'
 gem 'sass-rails'
 gem 'uglifier'
 gem 'coffee-rails'
@@ -47,6 +48,5 @@ group :test do
 end
 
 group :production do
-  gem 'pg'
   gem 'rails_12factor'
 end
