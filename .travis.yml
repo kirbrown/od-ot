@@ -1,8 +1,7 @@
 language: ruby
 
 rvm:
-  - 2.4.1
-
+  - 2.4.2
 
 before_script:
   - cp config/database.travis.yml config/database.yml
