@@ -2,6 +2,8 @@ source 'https://rubygems.org'
 
 gem 'rails', '~> 5.1', '>= 5.1.5'
 
+gem 'puma'
+
 gem 'sass-rails'
 gem 'uglifier'
 gem 'coffee-rails'
