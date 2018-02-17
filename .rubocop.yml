@@ -3,14 +3,13 @@
 AllCops:
   DisplayCopNames: true
   StyleGuideCopsOnly: false
-  TargetRubyVersion: 2.4
+  TargetRubyVersion: 2.5.0
   Exclude:
     - db/**/*
     - script/**/*
     - bin/**/*
     - vendor/**/*
     - tmp/**/*
-    - spec/fixtures/**/*
     - config/initializers/**/*
     - config/environments/**/*
     - config/application.rb
@@ -19,47 +18,15 @@ AllCops:
     - ./Rakefile
     - ./config.ru
 
-# Rails:
-#   Enabled: true
+Rails:
+  Enabled: true
 
 Documentation:
-  Enabled: false
-
-Layout/MultilineBlockLayout:
-  Exclude:
-    - spec/**/*
-
-Layout/TrailingBlankLines:
-  Enabled: false
-
-Layout/IndentHash:
-  Exclude:
-    - spec/**/*
-
-Style/StringLiterals:
   Enabled: false
 
 Style/FrozenStringLiteralComment:
   Enabled: false
 
-Style/ClassAndModuleChildren:
-  Enabled: false
-
-Style/MultilineBlockChain:
-  Enabled: false
-
-Style/BlockDelimiters:
-  Exclude:
-    - spec/**/*
-
-Style/StructInheritance:
-  Enabled: false
-
-Style/ParallelAssignment:
-  Enabled: false
-
-Style/RescueModifier:
-  Enabled: false
 
 Style/PercentLiteralDelimiters:
   PreferredDelimiters:
@@ -70,26 +37,6 @@ Style/PercentLiteralDelimiters:
     '%w':   '[]'
     '%W':   '[]'
 
-Lint/AmbiguousBlockAssociation:
-  Enabled: false
-
-Metrics/AbcSize:
-  Enabled: false
-
 Metrics/LineLength:
   Enabled: true
   Max: 120
-  Exclude:
-    - spec/**/*
-    - features/**/*
-
-Metrics/MethodLength:
-  Enabled: true
-  Max: 20
-  Exclude:
-    - spec/**/*
-
-Metrics/BlockLength:
-  Exclude:
-    - spec/**/*
-    - lib/tasks/**/*

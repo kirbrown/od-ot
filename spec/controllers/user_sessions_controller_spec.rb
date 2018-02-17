@@ -1,5 +1,6 @@
 require 'rails_helper'
 
+# rubocop:disable Metrics/BlockLength
 RSpec.describe UserSessionsController, type: :controller do
   describe 'GET #new' do
     it 'returns http success' do
@@ -15,7 +16,7 @@ RSpec.describe UserSessionsController, type: :controller do
 
   describe 'POST #create' do
     context 'with correct credentials' do
-      let!(:user) {
+      let!(:user) do
         User.create(
           first_name: 'John',
           last_name: 'Doe',
@@ -23,7 +24,7 @@ RSpec.describe UserSessionsController, type: :controller do
           password: 'password1234',
           password_confirmation: 'password1234'
         )
-      }
+      end
 
       it 'redirects to the todo list path' do
         post :create, params: { email: 'john@doe.com', password: 'password1234' }
@@ -79,7 +80,7 @@ RSpec.describe UserSessionsController, type: :controller do
     end
 
     context 'with an incorrect password' do
-      let!(:user) {
+      let!(:user) do
         User.create(
           first_name: 'John',
           last_name: 'Doe',
@@ -87,7 +88,7 @@ RSpec.describe UserSessionsController, type: :controller do
           password: 'password1234',
           password_confirmation: 'password1234'
         )
-      }
+      end
       let(:email) { user.email }
       let(:password) { 'incorrect' }
 
@@ -139,3 +140,4 @@ RSpec.describe UserSessionsController, type: :controller do
     end
   end
 end
+# rubocop:enable Metrics/BlockLength

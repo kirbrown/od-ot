@@ -1,5 +1,6 @@
 require 'rails_helper'
 
+# rubocop:disable Metrics/BlockLength
 describe 'Signing Up' do
   it 'allows a user to sign up for the site & creates the object in the database' do
     expect(User.count).to eq(0)
@@ -34,3 +35,4 @@ describe 'Signing Up' do
     expect(page.all('li.todo-item').size).to eq(7)
   end
 end
+# rubocop:enable Metrics/BlockLength
