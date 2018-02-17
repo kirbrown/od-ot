@@ -7,5 +7,5 @@ plugins:
     enabled: true
   rubocop:
     enabled: true
-     config:
+    config:
       file: .rubocop.yml
