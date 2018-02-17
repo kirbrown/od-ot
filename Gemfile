@@ -27,7 +27,7 @@ group :development, :test do
   gem 'rubocop'
   gem 'rubocop-rspec'
   gem 'rspec-rails'
-  gem 'factory_girl_rails'
+  gem 'factory_bot_rails'
   gem 'spring'
   gem 'spring-commands-rspec'
   gem 'rails-controller-testing'
