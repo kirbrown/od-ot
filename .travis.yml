@@ -1,23 +1,20 @@
-env:
-  global:
-    - CC_TEST_REPORTER_ID=787a2f89b15c637323c7340d65ec17e898ac44480706b4b4122ea040c2a88f1d
-
 language: ruby
+cache: bundler
 
 rvm:
   - 2.5.0
 
 before_script:
-  - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
-  - chmod +x ./cc-test-reporter
-  - ./cc-test-reporter before-build
-
   - cp config/database.travis.yml config/database.yml
   - bundle exec rake db:create RAILS_ENV=test
   - bundle exec rake db:migrate RAILS_ENV=test
 
+  - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+  - chmod +x ./cc-test-reporter
+  - ./cc-test-reporter before-build
+
 script:
-  - bundle exec rspec spec
+  - bundle exec rspec
   - bundle exec rubocop
   - bundle exec rails_best_practices .
   - bundle exec bundle-audit check --update
@@ -26,8 +23,6 @@ script:
 after_script:
   - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT
 
-cache: bundler
-
-addons:
-  code_climate:
-    repo_token: c79183d506a63da6a1d6f5a85e7c64717883b03e696947c64fdfde08001815fd
+env:
+  global:
+    - CC_TEST_REPORTER_ID=c79183d506a63da6a1d6f5a85e7c64717883b03e696947c64fdfde08001815fd
