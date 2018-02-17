@@ -1,5 +1,14 @@
+# Ignore all logfiles and tempfiles
+log
+!/log/.keep
+tmp
+
+# Ignore postgres data inside docker
+docker/containers/postgres/data
+
+# Ignore other staff
 .git
 .idea
-log/*
-tmp/*
-dump/*
+.vscode
+.DS_Store
+coverage
