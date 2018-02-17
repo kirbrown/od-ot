@@ -46,6 +46,7 @@ group :test do
   gem 'capybara'
   gem 'shoulda-matchers'
   gem 'capybara-email'
+  gem 'simplecov', require: false
 end
 
 group :production do
