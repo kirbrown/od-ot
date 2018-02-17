@@ -1,6 +1,8 @@
 source 'https://rubygems.org'
 
-gem 'rails', '~> 5.1', '>= 5.1.4'
+gem 'rails', '~> 5.1', '>= 5.1.5'
+
+gem 'puma'
 
 gem 'sass-rails'
 gem 'uglifier'
@@ -25,7 +27,7 @@ group :development, :test do
   gem 'rubocop'
   gem 'rubocop-rspec'
   gem 'rspec-rails'
-  gem 'factory_girl_rails'
+  gem 'factory_bot_rails'
   gem 'spring'
   gem 'spring-commands-rspec'
   gem 'rails-controller-testing'
@@ -44,6 +46,7 @@ group :test do
   gem 'capybara'
   gem 'shoulda-matchers'
   gem 'capybara-email'
+  gem 'simplecov', require: false
 end
 
 group :production do

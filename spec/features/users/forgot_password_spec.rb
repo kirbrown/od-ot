@@ -1,5 +1,6 @@
 require 'rails_helper'
 
+# rubocop:disable Metrics/BlockLength
 describe 'Forgotten Passwords' do
   let!(:user) { create(:user) }
 
@@ -7,9 +8,7 @@ describe 'Forgotten Passwords' do
     visit sign_in_path
     click_link 'Forgot Password'
     fill_in 'Email', with: user.email
-    expect {
-      click_button 'Send Instructions'
-    }.to change { ActionMailer::Base.deliveries.size }.by(1)
+    expect { click_button 'Send Instructions' }.to change { ActionMailer::Base.deliveries.size }.by(1)
   end
 
   it 'resets a password when following the email link' do
@@ -36,3 +35,4 @@ describe 'Forgotten Passwords' do
     expect(page).to have_content('Thanks for signing in!')
   end
 end
+# rubocop:enable Metrics/BlockLength

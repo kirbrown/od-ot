@@ -1,5 +1,6 @@
 require 'rails_helper'
 
+# rubocop:disable Metrics/BlockLength
 RSpec.describe PasswordResetsController, type: :controller do
   describe 'GET new' do
     it 'renders the new template' do
@@ -21,7 +22,7 @@ RSpec.describe PasswordResetsController, type: :controller do
         expect do
           post :create, params: { email: user.email }
           user.reload
-        end.to change { user.password_reset_token }
+        end.to(change { user.password_reset_token })
       end
 
       it 'sends a password reset email' do
@@ -69,7 +70,7 @@ RSpec.describe PasswordResetsController, type: :controller do
       it 'renders the 404 page' do
         get :edit, params: { id: 'notfound' }
         expect(response.status).to eq(404)
-        expect(response).to render_template(file: "#{Rails.root}/public/404.html")
+        expect(response).to render_template(file: Rails.root.join('public', '404.html').to_s)
       end
     end
   end
@@ -128,3 +129,4 @@ RSpec.describe PasswordResetsController, type: :controller do
     end
   end
 end
+# rubocop:enable Metrics/BlockLength
