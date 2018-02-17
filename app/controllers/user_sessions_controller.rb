@@ -1,6 +1,7 @@
 class UserSessionsController < ApplicationController
   def new; end
 
+  # rubocop:disable Metrics/MethodLength, Metrics/AbcSize
   def create
     user = User.find_by(email: params[:email])
     if user&.authenticate(params[:password])
@@ -16,6 +17,7 @@ class UserSessionsController < ApplicationController
       render 'new'
     end
   end
+  # rubocop:enable Metrics/MethodLength, Metrics/AbcSize
 
   def destroy
     session[:user_id] = nil

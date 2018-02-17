@@ -1,5 +1,6 @@
 require 'rails_helper'
 
+# rubocop:disable Metrics/BlockLength
 describe 'Viewing todo items' do
   let(:user) { create(:user) }
   let!(:todo_list) { create(:todo_list) }
@@ -22,10 +23,6 @@ describe 'Viewing todo items' do
     click_link 'Add Todo Item'
     fill_in 'Content', with: ''
     click_button 'Save'
-
-    # within 'div.flash' do
-    #   expect(page).to have_content('There was a problem adding that todo list item.')
-    # end
     expect(page).to have_content(/can't be blank/i)
   end
 
@@ -34,10 +31,7 @@ describe 'Viewing todo items' do
     click_link 'Add Todo Item'
     fill_in 'Content', with: '1'
     click_button 'Save'
-
-    # within 'div.flash' do
-    #   expect(page).to have_content('There was a problem adding that todo list item.')
-    # end
     expect(page).to have_content(/is too short/i)
   end
 end
+# rubocop:enable Metrics/BlockLength

@@ -1,7 +1,8 @@
 require 'rails_helper'
 
+# rubocop:disable Metrics/BlockLength
 describe User do
-  let(:valid_attributes) {
+  let(:valid_attributes) do
     {
       first_name: 'John',
       last_name: 'Doe',
@@ -9,7 +10,7 @@ describe User do
       password: 'password1234',
       password_confirmation: 'password1234'
     }
-  }
+  end
 
   context 'relationships' do
     it { should have_many(:todo_lists) }
@@ -59,7 +60,7 @@ describe User do
     let(:user) { create(:user) }
 
     it 'changes the password_reset_token attribute' do
-      expect { user.generate_password_reset_token! }.to change { user.password_reset_token }
+      expect { user.generate_password_reset_token! }.to(change { user.password_reset_token })
     end
 
     it 'calls SecureRandom.urlsafe_base64 to generate the password_reset_token' do
@@ -90,3 +91,4 @@ describe '#create_default_lists' do
     expect { user.create_default_lists }.to change { TodoItem.count }.by(0)
   end
 end
+# rubocop:enable Metrics/BlockLength

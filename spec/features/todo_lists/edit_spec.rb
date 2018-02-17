@@ -1,5 +1,6 @@
 require 'rails_helper'
 
+# rubocop:disable Metrics/BlockLength
 describe 'Editing todo lists' do
   let(:user) { create(:user) }
   let!(:todo_list) { create(:todo_list) }
@@ -42,3 +43,4 @@ describe 'Editing todo lists' do
     expect(page).to have_content(/is too short/i)
   end
 end
+# rubocop:enable Metrics/BlockLength

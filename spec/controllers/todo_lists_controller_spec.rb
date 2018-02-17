@@ -18,30 +18,31 @@ require 'rails_helper'
 # Message expectations are only used when there is no simpler way to specify
 # that an instance is receiving a specific message.
 
+# rubocop:disable Metrics/BlockLength
 RSpec.describe TodoListsController, type: :controller do
   # This should return the minimal set of attributes required to create a valid
   # TodoList. As you add validations to TodoList, be sure to
   # adjust the attributes here as well.
-  let(:valid_attributes) {
+  let(:valid_attributes) do
     {
       title: 'My Title'
     }
-  }
+  end
 
-  let(:invalid_attributes) {
+  let(:invalid_attributes) do
     {
       title: ''
     }
-  }
+  end
 
   # This should return the minimal set of values that should be in the session
   # in order to pass any filters (e.g. authentication) defined in
   # TodoListsController. Be sure to keep this updated too.
-  let(:valid_session) {
+  let(:valid_session) do
     {
       title: 'My Title'
     }
-  }
+  end
 
   let!(:user) { create(:user) }
   before { sign_in(user) }
@@ -83,9 +84,9 @@ RSpec.describe TodoListsController, type: :controller do
   describe 'POST #create' do
     context 'with valid params' do
       it 'creates a new TodoList' do
-        expect {
+        expect do
           post :create, params: { todo_list: valid_attributes, user: valid_session }
-        }.to change(TodoList, :count).by(1)
+        end.to change(TodoList, :count).by(1)
       end
 
       it 'assigns a newly created todo_list as @todo_list' do
@@ -191,9 +192,9 @@ RSpec.describe TodoListsController, type: :controller do
   describe 'DELETE #destroy' do
     it 'destroys the requested todo_list' do
       todo_list = user.todo_lists.create! valid_attributes
-      expect {
+      expect do
         delete :destroy, params: { id: todo_list.to_param }
-      }.to change(user.todo_lists, :count).by(-1)
+      end.to change(user.todo_lists, :count).by(-1)
     end
 
     it 'redirects to the todo_lists list' do
@@ -203,3 +204,4 @@ RSpec.describe TodoListsController, type: :controller do
     end
   end
 end
+# rubocop:enable Metrics/BlockLength

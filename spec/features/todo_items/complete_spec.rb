@@ -1,5 +1,6 @@
 require 'rails_helper'
 
+# rubocop:disable Metrics/BlockLength
 describe 'Completing todo items' do
   let(:user) { create(:user) }
   let!(:todo_list) { create(:todo_list) }
@@ -37,3 +38,4 @@ describe 'Completing todo items' do
     end
   end
 end
+# rubocop:enable Metrics/BlockLength

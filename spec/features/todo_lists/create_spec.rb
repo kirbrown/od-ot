@@ -1,5 +1,6 @@
 require 'rails_helper'
 
+# rubocop:disable Metrics/BlockLength
 describe 'Creating todo lists' do
   let(:user) { create(:user) }
   before { sign_in user, password: 'password1234' }
@@ -44,3 +45,4 @@ describe 'Creating todo lists' do
     expect(page).to_not have_content("This is what I'm doing today.")
   end
 end
+# rubocop:enable Metrics/BlockLength

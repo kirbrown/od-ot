@@ -6,14 +6,14 @@ class TodoItem < ApplicationRecord
   scope :complete, -> { where('completed_at is not null') }
 
   def completed?
-    !completed_at.blank?
+    completed_at.present?
   end
 
   def toggle_completion!
     if completed?
-      update_attribute(:completed_at, nil)
+      update_attributes(completed_at: nil)
     else
-      update_attribute(:completed_at, Time.now)
+      update_attributes(completed_at: Time.current)
     end
   end
 end

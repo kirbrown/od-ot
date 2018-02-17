@@ -1,5 +1,6 @@
 require 'rails_helper'
 
+# rubocop:disable Metrics/BlockLength
 describe 'Editing todo items' do
   let(:user) { create(:user) }
   let!(:todo_list) { create(:todo_list) }
@@ -47,3 +48,4 @@ describe 'Editing todo items' do
     expect(todo_item.content).to eq('Milk')
   end
 end
+# rubocop:enable Metrics/BlockLength
