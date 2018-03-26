@@ -11,9 +11,9 @@ class TodoItem < ApplicationRecord
 
   def toggle_completion!
     if completed?
-      update_attributes(completed_at: nil)
+      update(completed_at: nil)
     else
-      update_attributes(completed_at: Time.current)
+      update(completed_at: Time.current)
     end
   end
 end

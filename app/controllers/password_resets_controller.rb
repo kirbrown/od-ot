@@ -25,7 +25,7 @@ class PasswordResetsController < ApplicationController
 
   def update
     if @user&.update_attributes(user_params).present?
-      @user.update_attributes(password_reset_token: nil)
+      @user.update(password_reset_token: nil)
       session[:user_id] = @user.id
       redirect_to todo_lists_path, success: 'Password updated.'
     else
