@@ -16,7 +16,7 @@ class User < ApplicationRecord
   end
 
   def generate_password_reset_token!
-    update_attributes(password_reset_token: SecureRandom.urlsafe_base64(48))
+    update(password_reset_token: SecureRandom.urlsafe_base64(48))
   end
 
   # rubocop:disable Metrics/AbcSize
