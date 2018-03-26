@@ -23,13 +23,13 @@ describe TodoItem do
     let(:todo_item) { create(:todo_item) }
 
     it 'updates the completed_at attribute to the current time if nil' do
-      todo_item.update_attributes(completed_at: nil)
+      todo_item.update(completed_at: nil)
       expect { todo_item.toggle_completion! }.to(change { todo_item.completed_at })
       expect(todo_item.completed_at).to be_an_instance_of(ActiveSupport::TimeWithZone)
     end
 
     it 'updates completed_at to nil if set' do
-      todo_item.update_attributes(completed_at: Time.current)
+      todo_item.update(completed_at: Time.current)
       expect { todo_item.toggle_completion! }.to(change { todo_item.completed_at })
       expect(todo_item.completed_at).to be_nil
     end
