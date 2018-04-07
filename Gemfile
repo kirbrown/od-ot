@@ -20,6 +20,7 @@ gem 'figaro'
 gem 'mail'
 
 gem 'pundit'
+gem 'sqreen'
 
 group :development, :test do
   gem 'byebug', platform: :mri
