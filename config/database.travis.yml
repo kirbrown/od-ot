@@ -3,5 +3,5 @@ test:
   encoding: unicode
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   host: localhost
-  username: root
+  username: postgres
   database: od-ot_test
