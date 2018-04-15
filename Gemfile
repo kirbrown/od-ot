@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '~> 5.1', '>= 5.1.6'
+gem 'rails', '~> 5.2'
 
 gem 'puma'
 
@@ -46,7 +46,7 @@ end
 group :test do
   gem 'capybara'
   gem 'shoulda-matchers'
-  gem 'capybara-email'
+  gem 'capybara-email', '~> 2.5'
   gem 'simplecov', require: false
 end
 
