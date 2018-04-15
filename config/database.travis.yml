@@ -4,4 +4,5 @@ test:
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   host: localhost
   username: postgres
+  password:
   database: od-ot_test
