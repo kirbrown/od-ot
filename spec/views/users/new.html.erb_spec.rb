@@ -8,7 +8,7 @@ RSpec.describe 'users/new', type: :view do
                     email: 'mystring@mail.com',
                     password: 'MyString',
                     password_confirmation: 'MyString'
-    ))
+                  ))
   end
 
   it 'renders new user form' do
