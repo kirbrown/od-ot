@@ -7,13 +7,13 @@ module Api
     def create
       item = @list.todo_items.new(item_params)
       if item.save
-        render status: 200, json: {
+        render status: :ok, json: {
           message: 'Successfully created To-do Item.',
           todo_list: @list,
           todo_item: item
         }.to_json
       else
-        render status: 422, json: {
+        render status: :unprocessable_entity, json: {
           message: 'To-do Item creation failed.',
           errors: item.errors
         }.to_json
@@ -22,13 +22,13 @@ module Api
 
     def update
       if @item.update(item_params)
-        render status: 200, json: {
+        render status: :ok, json: {
           message: 'Successfully updated To-do Item.',
           todo_list: @list,
           todo_item: @item
         }.to_json
       else
-        render status: 422, json: {
+        render status: :unprocessable_entity, json: {
           message: 'To-do Item update is failed.',
           errors: @item.errors
         }.to_json
@@ -38,7 +38,7 @@ module Api
 
     def destroy
       @item.destroy
-      render status: 200, json: {
+      render status: :ok, json: {
         messsage: 'Successfully deleted To-do Item.'
       }.to_json
     end

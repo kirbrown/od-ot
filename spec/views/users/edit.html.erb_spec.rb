@@ -8,7 +8,7 @@ RSpec.describe 'users/edit', type: :view do
                             email: 'mystring@mail.com',
                             password: 'MyString',
                             password_confirmation: 'MyString'
-    ))
+                          ))
   end
 
   it 'renders the edit user form' do

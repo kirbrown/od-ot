@@ -27,7 +27,7 @@ class ApplicationController < ActionController::Base
         render file: 'public/404.html', status: :not_found, layout: false
       end
       format.json do
-        render status: 404, json: {
+        render status: :not_found, json: {
           message: 'Not found.'
         }
       end

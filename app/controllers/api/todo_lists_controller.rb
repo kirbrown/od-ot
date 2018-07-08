@@ -15,12 +15,12 @@ module Api
     def create
       list = current_user.todo_lists.new(list_params)
       if list.save
-        render status: 200, json: {
+        render status: :ok, json: {
           message: 'Successfully created To-do List.',
           todo_list: list
         }.to_json
       else
-        render status: 422, json: {
+        render status: :unprocessable_entity, json: {
           message: list.errors,
           todo_list: list
         }.to_json
@@ -29,12 +29,12 @@ module Api
 
     def update
       if @list.update(list_params)
-        render status: 200, json: {
+        render status: :ok, json: {
           message: 'Successfully updated.',
           todo_list: @list
         }.to_json
       else
-        render status: 422, json: {
+        render status: :unprocessable_entity, json: {
           message: 'The To-do list could not be updated.',
           todo_list: @list
         }.to_json
@@ -44,7 +44,7 @@ module Api
 
     def destroy
       @list.destroy
-      render status: 200, json: {
+      render status: :ok, json: {
         messsage: 'Successfully deleted To-do List.'
       }.to_json
     end
