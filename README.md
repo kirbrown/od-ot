@@ -4,7 +4,6 @@
 [![Issue Count](https://codeclimate.com/github/k1r8r0wn/od-ot/badges/issue_count.svg)](https://codeclimate.com/github/k1r8r0wn/od-ot)
 [![Maintainability](https://api.codeclimate.com/v1/badges/7ee164a00df359ca7c84/maintainability)](https://codeclimate.com/github/k1r8r0wn/od-ot/maintainability)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/7ee164a00df359ca7c84/test_coverage)](https://codeclimate.com/github/k1r8r0wn/od-ot/test_coverage)
-[![Dependency Status](https://gemnasium.com/badges/github.com/k1r8r0wn/od-ot.svg)](https://gemnasium.com/github.com/k1r8r0wn/od-ot)
 
 ## About
 
