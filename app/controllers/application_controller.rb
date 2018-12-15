@@ -52,6 +52,7 @@ class ApplicationController < ActionController::Base
                         .verify(cookies.permanent.signed[:remember_me_token])
 
     return unless verification
+
     Rails.logger.info 'Logging in by cookie.'
   end
 
