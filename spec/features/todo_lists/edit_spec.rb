@@ -4,7 +4,7 @@ require 'rails_helper'
 describe 'Editing todo lists' do
   let(:user) { create(:user) }
   let!(:todo_list) { create(:todo_list) }
-  before { sign_in todo_list.user, password: 'password1234' }
+  before { sign_in todo_list.user }
 
   def update_todo_list(options = {})
     options[:title] ||= 'My todo list'

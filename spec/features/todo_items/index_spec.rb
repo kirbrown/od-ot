@@ -3,7 +3,7 @@ require 'rails_helper'
 describe 'Viewing todo items' do
   let(:user) { create(:user) }
   let!(:todo_list) { create(:todo_list) }
-  before { sign_in todo_list.user, password: 'password1234' }
+  before { sign_in todo_list.user }
 
   it 'displays the title of the todo list' do
     visit_todo_list(todo_list)

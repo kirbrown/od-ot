@@ -152,7 +152,7 @@ RSpec.describe TodoListsController, type: :controller do
         # specifies that the TodoList created on the previous line
         # receives the :update_attributes message with whatever params are
         # submitted in the request.
-        allow(TodoList).to receive(:update).with(title: 'MyString')
+        allow_any_instance_of(TodoList).to receive(:update).and_return(true)
         put :update, params: { id: todo_list.to_param, todo_list: { title: 'MyString' } }
       end
 

@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '~> 5.2'
+gem 'rails', '~> 5.2.2'
 
 gem 'puma'
 
@@ -12,7 +12,6 @@ gem 'jbuilder'
 
 gem 'bcrypt'
 
-gem "autoprefixer-rails"
 gem 'foundation-rails'
 gem 'font-awesome-rails'
 
@@ -21,6 +20,8 @@ gem 'mail'
 
 gem 'pundit'
 gem 'sqreen'
+
+gem 'sprockets-es6'
 
 group :development, :test do
   gem 'byebug', platform: :mri
@@ -34,6 +35,7 @@ group :development, :test do
   gem 'rails-controller-testing'
   gem 'pry-byebug'
   gem 'pry-rails'
+  gem 'ffaker'
 end
 
 group :development do
