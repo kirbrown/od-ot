@@ -5,7 +5,7 @@ describe 'Completing todo items' do
   let(:user) { create(:user) }
   let!(:todo_list) { create(:todo_list) }
   let!(:todo_item) { todo_list.todo_items.create(content: 'Milk') }
-  before { sign_in todo_list.user, password: 'password1234' }
+  before { sign_in todo_list.user }
 
   it 'is successful when marking a single item complete' do
     expect(todo_item.completed_at).to be_nil

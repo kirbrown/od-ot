@@ -3,7 +3,7 @@ require 'rails_helper'
 # rubocop:disable Metrics/BlockLength
 describe 'Creating todo lists' do
   let(:user) { create(:user) }
-  before { sign_in user, password: 'password1234' }
+  before { sign_in user }
 
   def create_todo_list(options = {})
     options[:title] ||= 'My todo list'

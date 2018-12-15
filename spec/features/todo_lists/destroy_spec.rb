@@ -3,7 +3,7 @@ require 'rails_helper'
 describe 'Deleting todo lists' do
   let(:user) { create(:user) }
   let!(:todo_list) { create(:todo_list) }
-  before { sign_in todo_list.user, password: 'password1234' }
+  before { sign_in todo_list.user }
 
   it 'is successful when clicking the destroy link' do
     visit '/todo_lists'

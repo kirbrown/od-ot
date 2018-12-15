@@ -6,7 +6,7 @@ describe 'Logging Out' do
     visit '/todo_lists'
     expect(page).to have_content('Sign In')
     fill_in 'Email', with: user.email
-    fill_in 'Password', with: 'password1234'
+    fill_in 'Password', with: user.password
     click_button 'Sign In'
 
     expect(page).to have_css('.fa-sign-out')
