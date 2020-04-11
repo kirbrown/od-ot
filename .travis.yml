@@ -10,8 +10,8 @@ before_install:
   - bundle update --bundler
 
 before_script:
-  - cp config/database.travis.yml config/database.yml
-  - psql -c 'create database od-ot_test;' -U postgres
+  - cp config/database.yml.travis config/database.yml
+  - psql -c 'create database travis_ci_test;' -U postgres
   - bundle exec rake db:migrate RAILS_ENV=test
 
   - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
