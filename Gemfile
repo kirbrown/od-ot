@@ -50,7 +50,7 @@ group :test do
   gem 'capybara'
   gem 'shoulda-matchers'
   gem 'capybara-email', '~> 2.5'
-  gem 'simplecov', require: false
+  gem 'simplecov', '~> 0.17.1', require: false
 end
 
 group :production do
