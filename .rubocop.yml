@@ -18,16 +18,21 @@ AllCops:
     - ./Rakefile
     - ./config.ru
 
-Rails:
+Lint/RaiseException:
+  Enabled: true
+Lint/StructNewOverride:
   Enabled: true
 
-Documentation:
+Style/Documentation:
   Enabled: false
-
 Style/FrozenStringLiteralComment:
   Enabled: false
-
-
+Style/HashEachMethods:
+  Enabled: true
+Style/HashTransformKeys:
+  Enabled: true
+Style/HashTransformValues:
+  Enabled: true
 Style/PercentLiteralDelimiters:
   PreferredDelimiters:
     default: ()
@@ -37,6 +42,6 @@ Style/PercentLiteralDelimiters:
     '%w':   '[]'
     '%W':   '[]'
 
-Metrics/LineLength:
+Layout/LineLength:
   Enabled: true
   Max: 120
