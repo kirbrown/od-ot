@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 ruby '2.5.3'
 
-gem 'rails', '~> 5.2.4.2'
+gem 'rails', '~> 5.2.4.3'
 
 gem 'puma'
 
@@ -20,7 +20,6 @@ gem 'figaro'
 gem 'mail'
 
 gem 'pundit'
-gem 'sqreen'
 
 gem 'sprockets-es6'
 
