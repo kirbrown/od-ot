@@ -3,7 +3,7 @@
 AllCops:
   DisplayCopNames: true
   StyleGuideCopsOnly: false
-  TargetRubyVersion: 2.5.0
+  TargetRubyVersion: 2.5.9
   Exclude:
     - db/**/*
     - script/**/*
