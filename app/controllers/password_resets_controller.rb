@@ -17,10 +17,7 @@ class PasswordResetsController < ApplicationController
   end
 
   def edit
-    if @user
-    else
-      render file: 'public/404.html', status: :not_found, layout: false
-    end
+    render file: 'public/404.html', status: :not_found, layout: false unless @user
   end
 
   def update

@@ -4,6 +4,7 @@ class FoundationFormBuilder < ActionView::Helpers::FormBuilder
   include ActionView::Helpers::TextHelper
 
   attr_accessor :output_buffer
+
   %w[email_field text_field password_field].each do |form_method|
     define_method(form_method) do |*args|
       attribute = args[0]

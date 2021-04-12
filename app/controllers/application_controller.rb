@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
 
   include Pundit
 
-  rescue_from ActiveRecord::RecordNotFound, with: :render_404
+  rescue_from ActiveRecord::RecordNotFound, with: :render_not_found
   rescue_from ActiveSupport::MessageVerifier::InvalidSignature, with: :render_error
   rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
 
@@ -21,7 +21,7 @@ class ApplicationController < ActionController::Base
     @go_back_link_to
   end
 
-  def render_404
+  def render_not_found
     respond_to do |format|
       format.html do
         render file: 'public/404.html', status: :not_found, layout: false
