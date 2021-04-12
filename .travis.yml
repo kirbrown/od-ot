@@ -1,6 +1,10 @@
 language: ruby
 cache: bundler
 
+env:
+  global:
+    - CC_TEST_REPORTER_ID=c79183d506a63da6a1d6f5a85e7c64717883b03e696947c64fdfde08001815fd
+
 rvm:
   - 2.5.3
 
@@ -30,7 +34,3 @@ after_script:
 
 services:
   - postgresql
-
-env:
-  global:
-    - CC_TEST_REPORTER_ID=c79183d506a63da6a1d6f5a85e7c64717883b03e696947c64fdfde08001815fd
