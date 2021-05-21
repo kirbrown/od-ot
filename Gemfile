@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 ruby '2.5.9'
 
-gem 'rails', '~> 5.2.4.5'
+gem 'rails', '~> 5.2.4.6'
 
 gem 'puma'
 
